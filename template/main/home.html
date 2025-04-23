@@ -1,0 +1,120 @@
+{%extends 'base.html'%}
+{%block content%}
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #d6f0e5, #a4d6f9);
+      margin: 0;
+      padding: 0;
+    }
+    .top-bar {
+      background: #fff;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      border-bottom: 2px solid #ddd;
+    }
+    .top-bar a {
+      margin-left: 10px;
+      border-radius: 20px;
+    }
+    .header-bar {
+      background: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .navbar-nav {
+      gap: 20px;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px 20px;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #1a1a1a;
+    }
+    .hero h1 span {
+      color: #007bff;
+    }
+    .hero p {
+      color: #555;
+      font-size: 1.2rem;
+      margin: 20px 0;
+    }
+    .search-buttons button {
+      margin: 10px;
+      padding: 12px 25px;
+      border-radius: 30px;
+      border: 2px solid #333;
+      background: white;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+    .search-buttons button:hover {
+      background: #007bff;
+      color: white;
+      transform: scale(1.05);
+    }
+    .stats-section {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 30px 10px;
+    }
+    .stat-box {
+      background: #e9f0ff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 200px;
+      transition: transform 0.3s ease;
+    }
+    .stat-box:hover {
+      transform: translateY(-5px);
+      background: #d0e2ff;
+    }
+    .stat-box h5 {
+      font-weight: bold;
+      color: #003f88;
+    }
+    .stat-box p {
+      margin: 0;
+      font-weight: 500;
+      color: #333;
+    }
+  </style>
+<body>
+<!-- Hero Section -->
+<div class="hero">
+  <h1>Best <span>Tutoring Platform</span><br>for Home & Online Tuitions</h1>
+  <p><i class="bi bi-geo-alt-fill"></i> FIND THE RIGHT TUTOR & TUITION IN YOUR AREA</p>
+  <div class="search-buttons">
+    <button class="btn border-dark">🔍 FIND TUTORS</button>
+    <button class="btn border-dark">🔎 FIND TUITIONS</button>
+  </div>
+</div>
+
+<!-- Stats Section -->
+<div class="stats-section">
+  <div class="stat-box">
+    <h5>📘 TUTORS</h5>
+    <p>1255 Verified Tutor</p>
+  </div>
+  <div class="stat-box">
+    <h5>📗 TUITIONS</h5>
+    <p>1269 Available Tuitions</p>
+  </div>
+  <div class="stat-box">
+    <h5>📌 COURSES</h5>
+    <p>272 Total Courses</p>
+  </div>
+</div>
+
+{%endblock%}

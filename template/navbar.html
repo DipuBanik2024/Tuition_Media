@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuition Media</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #d6f0e5, #a4d6f9);
+      margin: 0;
+      padding: 0;
+    }
+    .top-bar {
+      background: #fff;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      border-bottom: 2px solid #ddd;
+    }
+    .top-bar a {
+      margin-left: 10px;
+      border-radius: 20px;
+    }
+    .header-bar {
+      background: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .navbar-nav {
+      gap: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Top bar with login and register -->
+<div class="top-bar">
+  <a href="#" class="btn btn-dark btn-sm">LOGIN</a>
+  <a href="#" class="btn btn-warning btn-sm">REGISTER</a>
+</div>
+
+<!-- Navigation + Logo -->
+<div class="header-bar">
+  <div class="fw-bold fs-4 text-primary">TUITION MEDIA</div>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item">
+            <a class="nav-link active fw-bold" href="{% url 'home' %}">HOME</a>
+          </li>
+
+          <!-- FOR STUDENTS Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-bold" href="#" id="studentsDropdown" role="button" data-bs-toggle="dropdown">
+              FOR STUDENTS
+            </a>
+           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'tutor_list' %}">Tutor List</a></li>
+            <li><a class="dropdown-item" href="{% url 'lecture_notes' %}">Tutor Request</a></li>
+            <li><a class="dropdown-item" href="{% url 'lecture_notes' %}">Find Courses</a></li>
+            <li><a class="dropdown-item" href="{% url 'lecture_notes' %}">Find Lecture Notes</a></li>
+          </ul>
+          </li>
+
+          <!-- FOR TUTORS Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-bold" href="#" id="tutorsDropdown" role="button" data-bs-toggle="dropdown">
+              FOR TUTORS
+            </a>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Find Tuitions</a></li>
+            <li><a class="dropdown-item" href="{% url 'skill_development' %}">Skill Development</a></li>
+          </ul>
+          </li>
+
+          <!-- COURSES Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-bold" href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown">
+              COURSES
+            </a>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'ssc_hsc_academic_programs' %}">SSC & HSC Academic Programs</a></li>
+            <li><a class="dropdown-item" href="{% url 'admission_programs' %}">Admission Programs</a></li>
+            <li><a class="dropdown-item" href="{% url 'skill_development' %}">Skill Development</a></li>
+          </ul>
+          </li>
+
+          <!-- HELPLINE Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-bold" href="#" id="helplineDropdown" role="button" data-bs-toggle="dropdown">
+              HELPLINE
+            </a>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'terms' %}">Terms & Conditions</a></li>
+            <li><a class="dropdown-item" href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+            <li><a class="dropdown-item" href="{% url 'services' %}">Services</a></li>
+            <li><a class="dropdown-item" href="{% url 'help_center' %}">Help Center</a></li>
+          </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link fw-bold" href="{% url 'contact_us' %}">CONTACT US</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+</body>
+</html>
