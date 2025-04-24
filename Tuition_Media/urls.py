@@ -16,6 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import settings
+from django.conf.urls.static import static
+
 from main import views as main_view
 from accounts import views as account_view
 from courses import views as course_view
@@ -47,10 +50,12 @@ urlpatterns = [
     path('tutor_request/', students_view.tutor_request, name='tutor_request'),
     # tutors
     path('find_tuitions/', tutors_view.find_tuitions, name='find_tuitions'),
+    path('tuition_post/', tutors_view.tuition_post, name='tuition_post'),
     # helpline
     path ('help_center/',helpline_view.help_center,name='help_center'),
     path ('privacy_policy/',helpline_view.privacy_policy,name='privacy_policy'),
     path ('services/',helpline_view.services,name='services'),
     path ('terms/',helpline_view.terms,name='terms'),
 
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
