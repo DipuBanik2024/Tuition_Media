@@ -22,10 +22,19 @@ class tutor_request_post(models.Model):
         ('Bangla', 'Bangla'),
         ('English', 'English'),
     ]
+    GENDER_CHOICES = [
+        ('MALE', 'MALE'),
+        ('FEMALE', 'FEMALE'),
+    ]
+
     student_name = models.CharField(max_length=100)
-    phone = models.CharField(max_length=20)
-    medium = models.CharField(max_length=20, choices=MEDIUM_CHOICES)
-    student_class = models.CharField(max_length=30, choices=CLASS_CHOICES)
+    contact_number = models.CharField(max_length=20, blank=True, null=True)
+    medium = models.CharField(max_length=20, choices=MEDIUM_CHOICES,blank=True, null=True)
+    student_class = models.CharField(max_length=30, choices=CLASS_CHOICES,blank=True, null=True)
+    preffered_tutor=models.CharField(max_length=20, choices=GENDER_CHOICES,blank=True, null=True)
+    subject = models.CharField(max_length=100,blank=True,null=True)
+    salary = models.CharField(max_length=100, blank=True, null=True)
+    tutoring_days = models.CharField(max_length=100, blank=True, null=True)
     district = models.CharField(max_length=100,blank=True,null=True)
     area = models.CharField(max_length=100 ,blank=True,null=True)
     timestamp = models.DateTimeField(auto_now_add=True)

@@ -49,7 +49,7 @@ urlpatterns = [
     path('tutor_list/', students_view.tutor_list, name='tutor_list'),
     path('tutor_request/', students_view.tutor_request, name='tutor_request'),
     # tutors
-    path('find_tuitions/', tutors_view.find_tuitions, name='find_tuitions'),
+    path('find_tuitions/',tutors_view.find_tuitions, name='find_tuitions'),
     path('tuition_post/', tutors_view.tuition_post, name='tuition_post'),
     # helpline
     path ('help_center/',helpline_view.help_center,name='help_center'),

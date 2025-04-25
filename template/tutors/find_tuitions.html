@@ -1,4 +1,12 @@
 {%extends 'base.html'%}
 {%block content%}
 <h1>Find tuitions</h1>
+<ul>
+    {% for post in posts %}
+        <li>{{ post.student_name }} - {{ post.student_class }} ({{ post.district }})</li>
+    {% empty %}
+        <li>No tuition requests found.</li>
+    {% endfor %}
+</ul>
+
 {%endblock%}
