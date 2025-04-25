@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #d6f0e5, #a4d6f9);
+  background: linear-gradient(to right, #cdffd8, #94b9ff);
   font-family: 'Segoe UI', sans-serif;
 }
 
@@ -68,7 +68,7 @@ body {
 /* ===== Golden Separator Line (Fixed) ===== */
 .golden-line {
   height: 4px;
-  background-color: gold;
+  background-color: #b8895d;
   width: 95%;
   margin: 0 auto;
   border-radius: 4px;

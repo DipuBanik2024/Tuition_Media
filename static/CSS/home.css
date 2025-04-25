@@ -1,7 +1,7 @@
 /* ===== Body and Background ===== */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #d6f0e5, #a4d6f9);
+  background: linear-gradient(to right, #cdffd8, #94b9ff);
   margin: 0;
   padding: 0;
 }
@@ -44,37 +44,65 @@ body {
   color: #007bff;
 }
 .hero p {
-  color: #555;
+  color: #b8895d;
   font-size: 1.2rem;
   margin: 20px 0;
 }
 
+/* ===== for home image  ===== */
+.tree-image {
+  position: absolute; /* To place it behind other content */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 60%;
+
+  background-position: center;
+  opacity: 0.3; /* Reduced visibility */
+  z-index: -1; /* Makes sure it stays behind other content */
+}
+.tutorstudent-image {
+  width: 40%; /* Make the image container take up 40% of the page width */
+  float: right; /* Align it to the right side */
+  padding: 20px;
+  box-sizing: border-box;
+   margin-top: -300px;
+}
+
+.tutorstudent-image img {
+  width: 100%; /* Make the image take up the full width of the container */
+  height: auto; /* Ensure the aspect ratio is preserved */
+}
 /* ===== Search Buttons ===== */
 .search-buttons button {
   margin: 10px;
   padding: 12px 25px;
   border-radius: 30px;
-  border: 2px solid #333;
-  background: white;
+  border: 2px solid #b8895d; /* golden-brown border */
+  background: linear-gradient(to right, #94b9ff,#cdffd8);
   transition: all 0.3s ease;
   font-weight: 600;
+  color: black;
+
 }
+
 .search-buttons button:hover {
-  background: #007bff;
-  color: white;
+  background: linear-gradient(to right, #007991, #78ffd6);
+  color:  linear-gradient(to right, #d6f0e5, #a4d6f9);
   transform: scale(1.05);
 }
 
 /* ===== Stats Section ===== */
 .stats-section {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 20px;
   padding: 30px 10px;
 }
 .stat-box {
-  background: #e9f0ff;
+  background: linear-gradient(to right, #cdffd8, #94b9ff);
   padding: 20px 30px;
   border-radius: 10px;
   text-align: center;
@@ -83,7 +111,7 @@ body {
 }
 .stat-box:hover {
   transform: translateY(-5px);
-  background: #d0e2ff;
+  background:linear-gradient(to right, #007991, #78ffd6);
 }
 .stat-box h5 {
   font-weight: bold;

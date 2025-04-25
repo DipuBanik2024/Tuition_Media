@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
   <!-- Load the custom CSS -->
 
@@ -9,9 +9,17 @@
     <p><i class="bi bi-geo-alt-fill"></i> FIND THE RIGHT TUTOR & TUITION IN YOUR AREA</p>
     <div class="search-buttons">
       <button class="btn border-dark">🔍 FIND TUTORS</button>
-      <button class="btn border-dark">🔎 FIND TUITIONS</button>
+      <button class="btn border-dark">🔍 FIND TUITIONS</button>
     </div>
   </div>
+  <!-- Add the image here -->
+  <div class="tutorstudent-image">
+    <img src="{% static 'images/tutor_studentlogo.png' %}" alt="Home page Tutor Student  Image">
+  </div>
+<div class="tree-image">
+    <img src="{% static 'images/treelogo.png' %}" alt="Background Tree Image">
+  </div>
+
 
   <!-- Stats Section -->
   <div class="stats-section">
