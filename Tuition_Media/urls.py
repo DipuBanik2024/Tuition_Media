@@ -36,7 +36,7 @@ urlpatterns = [
     path('about/',main_view.About,name='about'),
     # Account
     path('login/',account_view.login,name='login'),
-    path('register/', account_view.Register, name='register'),
+    path('register/', account_view.register, name='register'),
     path('profile/', account_view.profile, name='profile'),
     # courses
     path('course_detail/', course_view.course_detail, name='course_detail'),

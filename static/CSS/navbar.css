@@ -1,0 +1,76 @@
+/* ===== Body Background ===== */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #d6f0e5, #a4d6f9);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== Header/Navbar ===== */
+.header-bar {
+  background: #fff;
+  padding: 10px 30px;
+}
+.navbar-nav {
+  gap: 10px; /* Increased gap between navbar items */
+}
+
+.nav-item {
+  margin-right: 2px; /* Adjust margin for navbar items */
+}
+
+/* ===== Navbar Items Hover Effect ===== */
+.nav-link {
+  color: #363636 !important;
+  position: relative;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.nav-link:not(.active):hover {
+  background-color: #757575;
+  color: white !important;
+  border-radius: 20px;
+}
+
+/* ===== Dropdown Button Hover Effect ===== */
+.navbar-nav .nav-item .dropdown-menu .dropdown-item {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 20px; /* Optional: To match the button's rounded corners */
+}
+
+.navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+  background-color: #757575 ; /* Background color on hover */
+  color: white !important; /* Text color on hover */
+}
+/* ===== Login/Register Buttons aligned to navbar ===== */
+
+.auth-buttons {
+  background: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+
+.auth-buttons a {
+  margin-left: 10px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.auth-buttons a:hover {
+  background-color: pink;
+  color: black;
+}
+
+/* ===== Golden Separator Line (Fixed) ===== */
+.golden-line {
+  height: 4px;
+  background-color: gold;
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: none !;
+}

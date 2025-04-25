@@ -1,0 +1,96 @@
+/* ===== Body and Background ===== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #d6f0e5, #a4d6f9);
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Top Bar ===== */
+.top-bar {
+  background: #fff;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+}
+.top-bar a {
+  margin-left: 10px;
+  border-radius: 20px;
+}
+
+/* ===== Header Bar ===== */
+.header-bar {
+  background: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  text-align: left;
+  padding: 60px 20px 20px;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+.hero h1 span {
+  color: #007bff;
+}
+.hero p {
+  color: #555;
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+
+/* ===== Search Buttons ===== */
+.search-buttons button {
+  margin: 10px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: 2px solid #333;
+  background: white;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+.search-buttons button:hover {
+  background: #007bff;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* ===== Stats Section ===== */
+.stats-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px 10px;
+}
+.stat-box {
+  background: #e9f0ff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 200px;
+  transition: transform 0.3s ease;
+}
+.stat-box:hover {
+  transform: translateY(-5px);
+  background: #d0e2ff;
+}
+.stat-box h5 {
+  font-weight: bold;
+  color: #003f88;
+}
+.stat-box p {
+  margin: 0;
+  font-weight: 500;
+  color: #333;
+}
