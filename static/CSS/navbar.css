@@ -8,50 +8,74 @@ body {
 
 /* ===== Header/Navbar ===== */
 .header-bar {
-  background: #fff;
+  display: flex;
+  justify-content: space-between;  /* Align items at opposite ends */
+  align-items: center;  /* Vertically align the items */
+  background-color: #fff;
   padding: 10px 30px;
+  height: 90px;
 }
+
+.logo-container {
+  display: flex;
+  align-items: center;  /* Vertically align the logo and text */
+  margin-left: -30px;  /* Shift the logo slightly to the left (negative value moves it left) */
+}
+
+.logo {
+  height: 90px;  /* Adjust logo size */
+  margin-right: -20px;  /* Space between the logo and text */
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+.fs-4 {
+  font-size: 1.5rem;  /* Font size for the text */
+}
+
+.text-primary {
+  color: #007bff;  /* Color for the text */
+}
+
+/* Navbar items */
 .navbar-nav {
-  gap: 10px; /* Increased gap between navbar items */
+  display: flex;
+  margin-left:auto;
+  gap: 10px;  /* Adjust spacing between navbar items */
 }
 
 .nav-item {
-  margin-right: 2px; /* Adjust margin for navbar items */
+  margin-right: 2px;  /* Adjust margin for navbar items */
 }
 
-/* ===== Navbar Items Hover Effect ===== */
+/* Navbar item hover effect */
 .nav-link {
   color: #363636 !important;
-  position: relative;
   padding: 8px 12px;
   transition: all 0.3s ease;
   border-radius: 6px;
 }
 
-.nav-link:not(.active):hover {
+.nav-link:hover {
   background-color: #757575;
   color: white !important;
   border-radius: 20px;
 }
-
-/* ===== Dropdown Button Hover Effect ===== */
-.navbar-nav .nav-item .dropdown-menu .dropdown-item {
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border-radius: 20px; /* Optional: To match the button's rounded corners */
+.dropdown-menu .dropdown-item:hover {
+    background-color: #757575; /* Light gray background on hover */
+    color: white; /* Bootstrap primary color for text */
+    border-radius: 20px;
+    transition: 0.3s; /* Smooth transition */
 }
 
-.navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
-  background-color: #757575 ; /* Background color on hover */
-  color: white !important; /* Text color on hover */
-}
-/* ===== Login/Register Buttons aligned to navbar ===== */
-
+/* Auth buttons */
 .auth-buttons {
-  background: #fff;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
+  margin-left: -150px;
 }
 
 .auth-buttons a {
@@ -69,8 +93,8 @@ body {
 .golden-line {
   height: 4px;
   background-color: #b8895d;
-  width: 95%;
+  width: 80%;
   margin: 0 auto;
   border-radius: 4px;
-  box-shadow: none !;
+  box-shadow: none !important;
 }

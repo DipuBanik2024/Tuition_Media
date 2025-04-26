@@ -27,18 +27,17 @@ class tutor_request_post(models.Model):
         ('FEMALE', 'FEMALE'),
     ]
 
-    student_name = models.CharField(max_length=100)
-    contact_number = models.CharField(max_length=20, blank=True, null=True)
-    medium = models.CharField(max_length=20, choices=MEDIUM_CHOICES,blank=True, null=True)
-    student_class = models.CharField(max_length=30, choices=CLASS_CHOICES,blank=True, null=True)
-    preffered_tutor=models.CharField(max_length=20, choices=GENDER_CHOICES,blank=True, null=True)
-    subject = models.CharField(max_length=100,blank=True,null=True)
-    salary = models.CharField(max_length=100, blank=True, null=True)
+    student_name = models.CharField(max_length=100)  # blank=False by default
+    contact_number = models.CharField(max_length=20, blank=True, null=True)  # Optional
+    medium = models.CharField(max_length=20, choices=MEDIUM_CHOICES,default='Bangla')  # Required choice
+    student_class = models.CharField(max_length=30, choices=CLASS_CHOICES,default='class 10')  # Required choice
+    preferred_tutor = models.CharField(max_length=20, choices=GENDER_CHOICES,default='MALE')  # Required choice
+    subject = models.CharField(max_length=100, blank=True, null=True)
+    salary = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     tutoring_days = models.CharField(max_length=100, blank=True, null=True)
-    district = models.CharField(max_length=100,blank=True,null=True)
-    area = models.CharField(max_length=100 ,blank=True,null=True)
+    district = models.CharField(max_length=100, blank=True, null=True)
+    area = models.CharField(max_length=100, blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
-
 
     def __str__(self):
         return f"{self.student_name} ({self.student_class}) - {self.district}"

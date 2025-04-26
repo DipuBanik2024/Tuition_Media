@@ -5,21 +5,27 @@
 
   <!-- Hero Section -->
   <div class="hero">
-    <h1>Best <span>Tutoring Platform</span><br>for Home & Online Tuitions</h1>
+   <h1>
+  <span class="first-line">
+    <span class="best-text">Best</span>
+    <span class="platform-text">Tutoring Platform</span>
+  </span><br>
+  <span class="second-line">for Home & Online Tuitions</span>
+</h1>
     <p><i class="bi bi-geo-alt-fill"></i> FIND THE RIGHT TUTOR & TUITION IN YOUR AREA</p>
     <div class="search-buttons">
-      <button class="btn border-dark">🔍 FIND TUTORS</button>
-      <button class="btn border-dark">🔍 FIND TUITIONS</button>
-    </div>
-  </div>
+  <a href="{% url 'tutor_list' %}">
+    <button class="btn border-dark">🔍 FIND TUTORS</button>
+  </a>
+  <a href="{% url 'find_tuitions' %}">
+    <button class="btn border-dark">🔍 FIND TUITIONS</button>
+  </a>
+</div>
   <!-- Add the image here -->
   <div class="tutorstudent-image">
     <img src="{% static 'images/tutor_studentlogo.png' %}" alt="Home page Tutor Student  Image">
   </div>
-<div class="tree-image">
-    <img src="{% static 'images/treelogo.png' %}" alt="Background Tree Image">
-  </div>
-
+<div class="tree-background"> </div>
 
   <!-- Stats Section -->
   <div class="stats-section">

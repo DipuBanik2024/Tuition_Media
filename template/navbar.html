@@ -1,92 +1,95 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tuition Media</title>
-
 </head>
 
 <body>
   <!-- Navigation + Logo + Login/Register -->
-  <div class="header-bar d-flex justify-content-between align-items-center flex-wrap">
-    <div class="fw-bold fs-4 text-primary">TUITION MEDIA</div>
+  <div class="header-bar">
+    <!-- Logo and "TUITION MEDIA" Text -->
+    <div class="logo-container">
+        <img src="{% static 'images/treelogo.png' %}" alt="Logo" class="logo">
+        <span class="fw-bold fs-4 text-primary">TUITION MEDIA</span>
+    </div>
 
-    <div class="d-flex align-items-center">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid p-0">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+    <!-- Navbar Menu and Links -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid p-0">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link  fw-bold" href="{% url 'home' %}">HOME</a>
-              </li>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="{% url 'home' %}">HOME</a>
+            </li>
 
-              <!-- FOR STUDENTS Dropdown -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle fw-bold" href="#" id="studentsDropdown" role="button" data-bs-toggle="dropdown">
-                  FOR STUDENTS
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'tutor_list' %}">Tutor List</a></li>
-                  <li><a class="dropdown-item" href="{% url 'tutor_request' %}">Tutor Request</a></li>
-                  <li><a class="dropdown-item" href="{% url 'lecture_notes' %}">Find Courses</a></li>
-                  <li><a class="dropdown-item" href="{% url 'lecture_notes' %}">Find Lecture Notes</a></li>
-                </ul>
-              </li>
+            <!-- FOR STUDENTS Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-bold" href="#" id="studentsDropdown" role="button" data-bs-toggle="dropdown">
+                FOR STUDENTS
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'tutor_list' %}">Tutor List</a></li>
+                <li><a class="dropdown-item" href="{% url 'tutor_request' %}">Tutor Request</a></li>
+                <li><a class="dropdown-item" href="{% url 'lecture_notes' %}">Find Courses</a></li>
+                <li><a class="dropdown-item" href="{% url 'lecture_notes' %}">Find Lecture Notes</a></li>
+              </ul>
+            </li>
 
-              <!-- FOR TUTORS Dropdown -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle fw-bold" href="#" id="tutorsDropdown" role="button" data-bs-toggle="dropdown">
-                  FOR TUTORS
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'find_tuitions' %}">Find Tuitions</a></li>
-                  <li><a class="dropdown-item" href="{% url 'tuition_post' %}">Tuition Post</a></li>
-                </ul>
-              </li>
+            <!-- FOR TUTORS Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-bold" href="#" id="tutorsDropdown" role="button" data-bs-toggle="dropdown">
+                FOR TUTORS
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'find_tuitions' %}">Find Tuitions</a></li>
+                <li><a class="dropdown-item" href="{% url 'tuition_post' %}">Tuition Post</a></li>
+              </ul>
+            </li>
 
-              <!-- COURSES Dropdown -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle fw-bold" href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown">
-                  COURSES
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'ssc_hsc_academic_programs' %}">SSC & HSC Academic Programs</a></li>
-                  <li><a class="dropdown-item" href="{% url 'admission_programs' %}">Admission Programs</a></li>
-                  <li><a class="dropdown-item" href="{% url 'skill_development' %}">Skill Development</a></li>
-                </ul>
-              </li>
+            <!-- COURSES Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-bold" href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown">
+                COURSES
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'ssc_hsc_academic_programs' %}">SSC & HSC Academic Programs</a></li>
+                <li><a class="dropdown-item" href="{% url 'admission_programs' %}">Admission Programs</a></li>
+                <li><a class="dropdown-item" href="{% url 'skill_development' %}">Skill Development</a></li>
+              </ul>
+            </li>
 
-              <!-- HELPLINE Dropdown -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle fw-bold" href="#" id="helplineDropdown" role="button" data-bs-toggle="dropdown">
-                  HELPLINE
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'terms' %}">Terms & Conditions</a></li>
-                  <li><a class="dropdown-item" href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
-                  <li><a class="dropdown-item" href="{% url 'services' %}">Services</a></li>
-                  <li><a class="dropdown-item" href="{% url 'help_center' %}">Help Center</a></li>
-                </ul>
-              </li>
+            <!-- HELPLINE Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-bold" href="#" id="helplineDropdown" role="button" data-bs-toggle="dropdown">
+                HELPLINE
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'terms' %}">Terms & Conditions</a></li>
+                <li><a class="dropdown-item" href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+                <li><a class="dropdown-item" href="{% url 'services' %}">Services</a></li>
+                <li><a class="dropdown-item" href="{% url 'help_center' %}">Help Center</a></li>
+              </ul>
+            </li>
 
-              <li class="nav-item">
-                <a class="nav-link fw-bold" href="{% url 'contact_us' %}">CONTACT US</a>
-              </li>
-            </ul>
-          </div>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="{% url 'contact_us' %}">CONTACT US</a>
+            </li>
+          </ul>
         </div>
-      </nav>
-
-      <!-- Login/Register Buttons inside navbar - easier alignment -->
-      <div class="auth-buttons">
-        <a class="btn btn-dark btn-sm" href="{% url 'login' %}">LOGIN</a>
-        <a class="btn btn-warning btn-sm" href="{% url 'register' %}">REGISTER</a>
       </div>
+    </nav>
+
+    <!-- Login/Register Buttons inside navbar - easier alignment -->
+    <div class="auth-buttons">
+      <a class="btn btn-dark btn-sm" href="{% url 'login' %}">LOGIN</a>
+      <a class="btn btn-warning btn-sm" href="{% url 'register' %}">REGISTER</a>
     </div>
   </div>
 
@@ -94,6 +97,5 @@
   <div class="golden-line"></div>
 
   <!-- Bootstrap JS -->
-
 </body>
 </html>
