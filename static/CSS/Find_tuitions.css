@@ -1,0 +1,88 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.tuition-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  background-color: #fff;
+  position: relative;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.tags {
+  margin-bottom: 12px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: #fff;
+  margin-right: 5px;
+}
+
+.tag.home {
+  background-color: #d63384;
+}
+
+.tag.time {
+  background-color: #0d6efd;
+}
+
+.tuition-card-body {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 16px;
+}
+
+.column {
+  flex: 1;
+}
+
+.column p {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.salary {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.card-actions {
+  text-align: right;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #fff;
+  margin-left: 8px;
+  font-size: 0.85rem;
+}
+
+.btn.update {
+  background-color: #198754;
+}
+
+.btn.delete {
+  background-color: #dc3545;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}

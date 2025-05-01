@@ -1,31 +1,36 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
-  <!-- Load the custom CSS -->
 
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+ <div class="page-wrapper">
   <!-- Hero Section -->
   <div class="hero">
-   <h1>
-  <span class="first-line">
-    <span class="best-text">Best</span>
-    <span class="platform-text">Tutoring Platform</span>
-  </span><br>
-  <span class="second-line">for Home & Online Tuitions</span>
-</h1>
+    <h1>
+      <span class="first-line">
+        <span class="best-text">Best</span>
+        <span class="platform-text">Tutoring Platform</span>
+      </span><br>
+      <span class="second-line">for Home & Online Tuitions</span>
+    </h1>
     <p><i class="bi bi-geo-alt-fill"></i> FIND THE RIGHT TUTOR & TUITION IN YOUR AREA</p>
     <div class="search-buttons">
-  <a href="{% url 'tutor_list' %}">
-    <button class="btn border-dark">🔍 FIND TUTORS</button>
-  </a>
-  <a href="{% url 'find_tuitions' %}">
-    <button class="btn border-dark">🔍 FIND TUITIONS</button>
-  </a>
-</div>
-  <!-- Add the image here -->
-  <div class="tutorstudent-image">
-    <img src="{% static 'images/tutor_studentlogo.png' %}" alt="Home page Tutor Student  Image">
+      <a href="{% url 'tutor_list' %}">
+        <button class="btn border-dark">🔍 FIND TUTORS</button>
+      </a>
+      <a href="{% url 'find_tuitions' %}">
+        <button class="btn border-dark">🔍 FIND TUITIONS</button>
+      </a>
+    </div>
   </div>
-<div class="tree-background"> </div>
+
+  <!-- Tutor Student Image -->
+  <div class="tutorstudent-image">
+    <img src="{% static 'images/tutor_studentlogo.png' %}" alt="Home page Tutor Student Image">
+  </div>
 
   <!-- Stats Section -->
   <div class="stats-section">
@@ -43,4 +48,6 @@
     </div>
   </div>
 
+  <!-- Background Tree (fixed with dynamic image path) -->
+  <div class="tree-background"></div>
 {% endblock %}

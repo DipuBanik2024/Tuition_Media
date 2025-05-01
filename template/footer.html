@@ -1,9 +1,60 @@
-<footer class="bg-gray-900 text-white py-6">
-  <div class="container mx-auto px-4 text-center">
-    <p class="text-sm">&copy; {{ year }} Tuition Media. All rights reserved.</p>
-    <p class="text-xs mt-2">
-      <a href="#" class="text-blue-400 hover:underline">Privacy Policy</a> |
-      <a href="#" class="text-blue-400 hover:underline">Terms of Service</a>
-    </p>
+<!-- Footer -->
+<footer class="footer bg-dark text-white pt-3 pb-2 mt-auto">
+  <div class="container">
+    <div class="row">
+      <!-- About Tuition Media -->
+      <div class="col-md-3 col-lg-3 mb-4">
+        <h5 class="text-uppercase font-weight-bold">About Tuition Media</h5>
+        <p>Best Tutoring Platform for Home & Online Tuitions</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-3 col-lg-3 mb-4">
+        <h5 class="text-uppercase font-weight-bold">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'terms' %}" class="text-white">Terms & Conditions</a></li>
+          <li><a href="{% url 'privacy_policy' %}" class="text-white">Privacy Policy</a></li>
+          <li><a href="{% url 'services' %}" class="text-white">Services</a></li>
+          <li><a href="{% url 'help_center' %}" class="text-white">Help Center</a></li>
+          <li><a href="{% url 'contact_us' %}" class="text-white">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-3 col-lg-3 mb-4">
+        <h5 class="text-uppercase font-weight-bold">Contact Info</h5>
+        <p><i class="fas fa-home me-2"></i> Dhaka, Bangladesh</p>
+        <p><i class="fas fa-envelope me-2"></i> info@tuitionmedia.com</p>
+        <p><i class="fas fa-phone me-2"></i> +880 123 456 789</p>
+      </div>
+
+      <!-- Follow Us -->
+      <div class="col-md-3 col-lg-3 mb-4">
+        <h5 class="text-uppercase font-weight-bold">Follow Us</h5>
+        <a href="https://facebook.com/tuitionmedia" class="btn btn-outline-light btn-floating m-1" role="button">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com/tuitionmedia" class="btn btn-outline-light btn-floating m-1" role="button">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://instagram.com/tuitionmedia" class="btn btn-outline-light btn-floating m-1" role="button">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://linkedin.com/company/tuitionmedia" class="btn btn-outline-light btn-floating m-1" role="button">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+
+    <hr class="mb-2" style="border-color: rgba(255, 255, 255, 0.4);">
+
+    <div class="row">
+      <div class="col text-center">
+        <p class="mb-0">© 2025 Tuition Media. All Rights Reserved.</p>
+      </div>
+    </div>
   </div>
 </footer>
+
+<!-- Add Bootstrap JS and FontAwesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>

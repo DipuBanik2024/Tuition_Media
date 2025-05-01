@@ -6,6 +6,14 @@ body {
   padding: 0;
 }
 
+/* Page Wrapper to adjust height and make footer visible only after scroll */
+.page-wrapper {
+  min-height: 100vh; /* Adjust the height to 150% of viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 /* ===== Top Bar ===== */
 .top-bar {
   background: #fff;
@@ -15,6 +23,7 @@ body {
   align-items: center;
   border-bottom: 2px solid #ddd;
 }
+
 .top-bar a {
   margin-left: 10px;
   border-radius: 20px;
@@ -35,6 +44,7 @@ body {
   text-align: left;
   padding: 30px 30px 20px;
 }
+
 .hero h1 {
   font-size: 2.9rem;
   font-weight: bold;
@@ -42,7 +52,7 @@ body {
 }
 
 .hero .first-line {
-  margin-left: 30px; /* Move the first line slightly right */
+  margin-left: 30px;
 }
 
 .hero .best-text {
@@ -59,11 +69,13 @@ body {
   font-size: 2.9rem;
   margin: 20px 0;
 }
+
 .hero h1 span {
   color: #007bff;
 }
+
 .hero p {
-  color: #b8895d;
+  color: blue;
   font-size: 1.2rem;
   margin: 20px 0;
   margin-left: 35px;
@@ -71,28 +83,30 @@ body {
 
 /* Tree Background Image */
 .tree-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw; /* Full width */
-    height: 100vh; /* Full height */
-    background-image: url("/static/images/treelogo.png");
- /* Set background image */
-    background-size: 30%; /* Size it down to 40% */
-     background-position: 20% 120%; /* Center the image */
-    background-repeat: no-repeat; /* Prevent repetition */
-    opacity: 0.2; /* Minimum opacity*/
-    z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("{% static 'images/treelogo.png' %}");
+  background-size: 30%;
+  background-position: 20% 120%;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  z-index: -1;
 }
 
 /* ===== Tutor Student Image ===== */
 .tutorstudent-image {
   width: 40%;
-  float: right;
   padding: 20px;
   box-sizing: border-box;
-  margin-top: -300px;
+  position: absolute;
+  top: 100px; /* Adjust as needed */
+  right: 30px;
+  z-index: 0; /* Keep it behind interactive elements if needed */
 }
+
 .tutorstudent-image img {
   width: 100%;
   height: auto;
@@ -100,23 +114,24 @@ body {
 
 /* ===== Search Buttons ===== */
 .search-buttons {
-  margin-left: 60px; /* Move the whole search button block to the right */
+  margin-left: 60px;
 }
+
 .search-buttons button {
   margin: 15px 40px 10px 0;
   padding: 8px 21px;
   border-radius: 30px;
   border: 2px solid #b8895d !important;
-  background: linear-gradient(to right, #94b9ff,#cdffd8);
+  background: linear-gradient(to right, #94b9ff, #cdffd8);
   transition: all 0.3s ease;
   font-weight: bold;
   color: black;
 }
+
 .search-buttons button:hover {
   background: linear-gradient(to right, #007991, #78ffd6);
-  color: black /* Invalid color fallback, consider using just color value */
+  color: black;
   transform: scale(1.05);
-
 }
 
 /* ===== Stats Section ===== */
@@ -129,6 +144,7 @@ body {
   margin-left: 18px;
   margin-top: 40px;
 }
+
 .stat-box {
   background: linear-gradient(to right, #cdffd8, #94b9ff);
   padding: 15px 20px;
@@ -137,14 +153,17 @@ body {
   min-width: 180px;
   transition: transform 0.3s ease;
 }
+
 .stat-box:hover {
   transform: translateY(-5px);
   background: linear-gradient(to right, #007991, #78ffd6);
 }
+
 .stat-box h5 {
   font-weight: bold;
   color: #003f88;
 }
+
 .stat-box p {
   margin: 0;
   font-weight: 500;

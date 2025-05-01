@@ -1,29 +1,58 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/find_tuitions.css' %}">
+{% endblock %}
 
 {% block content %}
+
 <div class="container mt-4">
-    <h1 class="text-2xl font-bold mb-4">Find Tuitions</h1>
+  <h1 class="text-2xl font-bold mb-4">Find Tuitions</h1>
 
-    {% if posts %}
-        <ul class="space-y-3">
-            {% for post in posts %}
-                <li class="p-4 border rounded-lg shadow-sm">
-                    <strong>{{ post.student_name }}</strong> <br>
-                    Class: {{ post.student_class }} <br>
-                    Subject: {{ post.subject }} <br>
-                    Salary: {{ post.salary }} BDT <br>
-                    Preferred Tutor: {{ post.preferred_tutor }} <br>
-                    Days: {{ post.tutoring_days }}<br>
-                    District: {{ post.district }} <br>
-                    Location : {{ post.area }}
-                </li>
-            <a href="{%url 'update' post.id%}" class="btn btn-primary">Update</a>
-            <a href="{%url 'delete' post.id%}" class="btn btn-primary">Delete</a>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p class="text-gray-600">No tuition requests found.</p>
-    {% endif %}
+  {% if posts %}
+    {% for post in posts %}
+      <div class="tuition-card">
+        <!-- Title -->
+        <h3 class="title">Tutor Needed For {{ post.subject }} ({{ post.student_class }})</h3>
 
+        <!-- Tags -->
+        <div class="tags">
+          <span class="tag home">Home Tutoring</span>
+          <span class="tag time">Posted just now</span>
+        </div>
+
+        <!-- 3 Columns -->
+        <div class="tuition-card-body">
+          <div class="column">
+            <p><strong>Medium:</strong> {{ post.medium }}</p>
+            <p><strong>Tutoring Days:</strong> {{ post.tutoring_days }} days/week</p>
+            <p><strong>District:</strong> {{ post.district }}</p>
+            <p><strong>Location:</strong> {{ post.location }}</p>
+          </div>
+
+          <div class="column">
+            <p><strong>Class:</strong> {{ post.student_class }}</p>
+            <p><strong>Subject:</strong> {{ post.subject }}</p>
+            <p><strong>Contact:</strong> {{ post.contact_number }}</p>
+          </div>
+
+          <div class="column">
+            <p><strong>Preferred Tutor:</strong> {{ post.preferred_tutor }}</p>
+            <p><strong>Salary:</strong> <span class="salary">৳{{ post.salary }}</span> / Month</p>
+          </div>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="card-actions">
+          <a href="{% url 'update' post.id %}" class="btn update">Update</a>
+          <a href="{% url 'delete' post.id %}" class="btn delete">Delete</a>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="text-gray-600">No tuition requests found.</p>
+  {% endif %}
 </div>
+
 {% endblock %}

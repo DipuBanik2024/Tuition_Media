@@ -25,6 +25,7 @@ class tutor_request_post(models.Model):
     GENDER_CHOICES = [
         ('MALE', 'MALE'),
         ('FEMALE', 'FEMALE'),
+        ('MALE/FEMALE', 'MALE/FEMALE'),
     ]
 
     student_name = models.CharField(max_length=100)  # blank=False by default
@@ -36,7 +37,7 @@ class tutor_request_post(models.Model):
     salary = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     tutoring_days = models.CharField(max_length=100, blank=True, null=True)
     district = models.CharField(max_length=100, blank=True, null=True)
-    area = models.CharField(max_length=100, blank=True, null=True)
+    location = models.CharField(max_length=100, blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
