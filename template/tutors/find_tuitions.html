@@ -1,12 +1,29 @@
-{%extends 'base.html'%}
-{%block content%}
-<h1>Find tuitions</h1>
-<ul>
-    {% for post in posts %}
-        <li>{{ post.student_name }} - {{ post.student_class }} ({{ post.district }})</li>
-    {% empty %}
-        <li>No tuition requests found.</li>
-    {% endfor %}
-</ul>
+{% extends 'base.html' %}
 
-{%endblock%}
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-2xl font-bold mb-4">Find Tuitions</h1>
+
+    {% if posts %}
+        <ul class="space-y-3">
+            {% for post in posts %}
+                <li class="p-4 border rounded-lg shadow-sm">
+                    <strong>{{ post.student_name }}</strong> <br>
+                    Class: {{ post.student_class }} <br>
+                    Subject: {{ post.subject }} <br>
+                    Salary: {{ post.salary }} BDT <br>
+                    Preferred Tutor: {{ post.preferred_tutor }} <br>
+                    Days: {{ post.tutoring_days }}<br>
+                    District: {{ post.district }} <br>
+                    Location : {{ post.area }}
+                </li>
+            <a href="{%url 'update' post.id%}" class="btn btn-primary">Update</a>
+            <a href="{%url 'delete' post.id%}" class="btn btn-primary">Delete</a>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-gray-600">No tuition requests found.</p>
+    {% endif %}
+
+</div>
+{% endblock %}

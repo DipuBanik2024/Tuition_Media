@@ -51,6 +51,8 @@ urlpatterns = [
     # tutors
     path('find_tuitions/',tutors_view.find_tuitions, name='find_tuitions'),
     path('tuition_post/', tutors_view.tuition_post, name='tuition_post'),
+    path('update/<str:id>',tutors_view.update, name='update'),
+    path('delete/<str:id>', tutors_view.delete, name='delete'),
     # helpline
     path ('help_center/',helpline_view.help_center,name='help_center'),
     path ('privacy_policy/',helpline_view.privacy_policy,name='privacy_policy'),

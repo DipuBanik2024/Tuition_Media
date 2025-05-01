@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Tutor Requests and Listings{% endblock %}
+
+{% block content %}
+<h2>Tutor Request</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="request_tutor" class="btn btn-primary">Submit Request</button>
+</form>
+
+
+{% endblock %}
