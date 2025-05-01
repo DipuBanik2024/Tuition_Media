@@ -15,5 +15,5 @@ class TutorRequestForm(forms.ModelForm):
             'salary': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Expected Salary'}),
             'tutoring_days': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Tutoring Days (e.g., Sun, Tue, Thu)'}),
             'district': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'District'}),
-            'area': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Area'}),
+            'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Location'}),
         }

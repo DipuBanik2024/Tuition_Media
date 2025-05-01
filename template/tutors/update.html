@@ -3,12 +3,128 @@
 {% block title %}Tutor Requests and Listings{% endblock %}
 
 {% block content %}
-<h2>Tutor Request</h2>
-<form method="POST">
+<style>
+  .form-container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+
+  .checkbox-group {
+    margin: 20px 0;
+  }
+
+  .submit-btn {
+    background-color: #6a1b9a;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .submit-btn:hover {
+    background-color: #4a148c;
+  }
+</style>
+
+<div class="form-container">
+  <h2>Tutor Request</h2>
+  <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" name="request_tutor" class="btn btn-primary">Submit Request</button>
-</form>
 
+    <div class="form-row">
+      <div class="form-group">
+        {{ form.student_name.label_tag }}
+        {{ form.student_name }}
+      </div>
+      <div class="form-group">
+        {{ form.contact_number.label_tag }}
+        {{ form.contact_number }}
+      </div>
+    </div>
 
+    <div class="form-row">
+      <div class="form-group">
+        {{ form.medium.label_tag }}
+        {{ form.medium }}
+      </div>
+      <div class="form-group">
+        {{ form.student_class.label_tag }}
+        {{ form.student_class }}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        {{ form.preferred_tutor.label_tag }}
+        {{ form.preferred_tutor }}
+      </div>
+      <div class="form-group">
+        {{ form.subject.label_tag }}
+        {{ form.subject }}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        {{ form.salary.label_tag }}
+        {{ form.salary }}
+      </div>
+      <div class="form-group">
+        {{ form.tutoring_days.label_tag }}
+        {{ form.tutoring_days }}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        {{ form.district.label_tag }}
+        {{ form.district }}
+      </div>
+      <div class="form-group">
+        {{ form.location.label_tag }}
+        {{ form.location }}
+      </div>
+    </div>
+
+    <div class="checkbox-group">
+      <label>
+        <input type="checkbox" required>
+        By clicking submit, you agree to our terms and policy.
+      </label>
+    </div>
+
+    <button type="submit" class="submit-btn" name="request_tutor">Submit Request</button>
+  </form>
+</div>
 {% endblock %}

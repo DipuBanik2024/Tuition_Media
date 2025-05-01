@@ -1,4 +1,76 @@
-{%extends 'base.html'%}
-{%block content%}
-<h1>Terms & Conditions</h1>
-{%endblock%}
+{% extends 'base.html' %}
+
+{% block title %}Terms & Conditions{% endblock %}
+
+{% block content %}
+<style>
+  .terms-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .terms-container h1 {
+    font-size: 32px;
+    color: #4a148c;
+    margin-bottom: 20px;
+  }
+
+  .terms-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 30px;
+  }
+
+  .terms-container p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 20px;
+  }
+
+  .terms-container ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .terms-container li {
+    margin-bottom: 10px;
+  }
+</style>
+
+<div class="terms-container">
+  <h1>Terms and Conditions</h1>
+
+  <p>Welcome to our Tuition Media platform. By accessing or using our website and services, you agree to be bound by the following terms and conditions. Please read them carefully.</p>
+
+  <h2>1. User Eligibility</h2>
+  <p>You must be at least 16 years old to use our platform. By submitting a request or registering as a tutor, you confirm that you meet the age requirement.</p>
+
+  <h2>2. Use of Service</h2>
+  <ul>
+    <li>Parents/students can post tutor requirements truthfully and accurately.</li>
+    <li>Tutors must provide authentic educational and contact information.</li>
+    <li>We reserve the right to remove any false or misleading listings.</li>
+  </ul>
+
+  <h2>3. Payment and Fees</h2>
+  <p>Our platform may charge a service fee for matching tutors and students. All fees will be clearly communicated before any transaction.</p>
+
+  <h2>4. Privacy Policy</h2>
+  <p>All user data is handled in accordance with our <a href="{% url 'privacy_policy' %}">Privacy Policy</a>. We do not sell or share personal information without consent.</p>
+
+  <h2>5. Limitation of Liability</h2>
+  <p>Tuition Media is not responsible for any issues arising from the tutor-student relationship. Users are advised to verify identities before engaging in tutoring arrangements.</p>
+
+  <h2>6. Changes to Terms</h2>
+  <p>We may update these Terms at any time. Continued use of the platform after changes constitutes acceptance of the new Terms.</p>
+
+  <h2>7. Contact Us</h2>
+  <p>If you have any questions or concerns about these Terms, please contact us at <strong>support@tuitionmedia.com</strong>.</p>
+</div>
+{% endblock %}

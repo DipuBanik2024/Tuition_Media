@@ -1,4 +1,91 @@
-{%extends 'base.html'%}
-{%block content%}
-<h1>Services</h1>
-{%endblock%}
+{% extends 'base.html' %}
+
+{% block title %}Our Services{% endblock %}
+
+{% block content %}
+<style>
+  .services-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .services-container h1 {
+    font-size: 36px;
+    color: #4a148c;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .service-box {
+    background-color: #f9f6ff;
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+  }
+
+  .service-box:hover {
+    background-color: #ede7f6;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+
+  .service-box h3 {
+    font-size: 22px;
+    color: #4a148c;
+    margin-bottom: 15px;
+  }
+
+  .service-box p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+  }
+</style>
+
+<div class="services-container">
+  <h1>Our Services</h1>
+  <div class="service-grid">
+    <div class="service-box">
+      <h3>Student-Tutor Matching</h3>
+      <p>We connect students with qualified tutors based on subject, class, and location to ensure a personalized learning experience.</p>
+    </div>
+
+    <div class="service-box">
+      <h3>Home & Online Tutoring</h3>
+      <p>Choose from in-person tutoring at home or flexible online sessions to suit your schedule and comfort.</p>
+    </div>
+
+    <div class="service-box">
+      <h3>Subject-Specific Help</h3>
+      <p>Whether it’s math, science, English, or Bangla—we help students find experts in any subject or curriculum.</p>
+    </div>
+
+    <div class="service-box">
+      <h3>Verified Tutors</h3>
+      <p>All our tutors go through a strict verification process to ensure trust and quality in every match.</p>
+    </div>
+
+    <div class="service-box">
+      <h3>Free Job Posting</h3>
+      <p>Parents or students can post tutor requirements for free and receive applications from interested tutors quickly.</p>
+    </div>
+
+    <div class="service-box">
+      <h3>Custom Support</h3>
+      <p>Have questions or need help finding a tutor? Our support team is here to assist you every step of the way.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

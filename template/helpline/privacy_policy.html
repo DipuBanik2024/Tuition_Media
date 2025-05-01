@@ -1,4 +1,87 @@
-{%extends 'base.html'%}
-{%block content%}
-<h1>Privacy Policy</h1>
-{%endblock%}
+{% extends 'base.html' %}
+
+{% block title %}Privacy Policy{% endblock %}
+
+{% block content %}
+<style>
+  .privacy-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .privacy-container h1 {
+    font-size: 32px;
+    color: #4a148c;
+    margin-bottom: 20px;
+  }
+
+  .privacy-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 30px;
+  }
+
+  .privacy-container p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 20px;
+  }
+
+  .privacy-container ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .privacy-container li {
+    margin-bottom: 10px;
+  }
+</style>
+
+<div class="privacy-container">
+  <h1>Privacy Policy</h1>
+
+  <p>Tuition Media is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your personal information when you use our platform.</p>
+
+  <h2>1. Information We Collect</h2>
+  <ul>
+    <li><strong>Personal Information:</strong> Name, email, phone number, address, etc.</li>
+    <li><strong>Usage Data:</strong> IP address, browser type, pages visited, and interactions.</li>
+    <li><strong>Form Submissions:</strong> Information submitted through tutor/student request forms.</li>
+  </ul>
+
+  <h2>2. How We Use Your Information</h2>
+  <ul>
+    <li>To connect students with tutors.</li>
+    <li>To improve our website and services.</li>
+    <li>To contact you with important updates or responses to your requests.</li>
+  </ul>
+
+  <h2>3. Sharing of Information</h2>
+  <p>We do not sell or rent your personal information. We may share your data with:</p>
+  <ul>
+    <li>Registered tutors or students for matching purposes.</li>
+    <li>Legal authorities, if required by law.</li>
+  </ul>
+
+  <h2>4. Data Security</h2>
+  <p>We implement standard security measures to protect your data. However, no method of transmission over the Internet is 100% secure.</p>
+
+  <h2>5. Cookies</h2>
+  <p>We may use cookies to enhance your browsing experience. You can choose to disable cookies through your browser settings.</p>
+
+  <h2>6. Your Rights</h2>
+  <p>You may request access to, correction of, or deletion of your personal data by contacting us.</p>
+
+  <h2>7. Changes to This Policy</h2>
+  <p>We may update this policy periodically. Please review it regularly to stay informed.</p>
+
+  <h2>8. Contact Us</h2>
+  <p>If you have any questions about this Privacy Policy, please email us at <strong>privacy@tuitionmedia.com</strong>.</p>
+</div>
+{% endblock %}

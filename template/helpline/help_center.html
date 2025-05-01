@@ -1,4 +1,116 @@
-{%extends 'base.html'%}
-{%block content%}
-<h1>Hep Center</h1>
-{%endblock%}
+{% extends 'base.html' %}
+
+{% block title %}Help Center{% endblock %}
+
+{% block content %}
+<style>
+  .help-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .help-container h1 {
+    font-size: 36px;
+    color: #4a148c;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .faq-section {
+    margin-bottom: 30px;
+  }
+
+  .faq-section h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+  }
+
+  .faq {
+    margin-bottom: 20px;
+  }
+
+  .faq h3 {
+    font-size: 18px;
+    color: #6a1b9a;
+    margin-bottom: 8px;
+  }
+
+  .faq p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .contact-box {
+    background-color: #f3e5f5;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .contact-box h3 {
+    color: #4a148c;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .contact-box p {
+    font-size: 15px;
+    color: #333;
+  }
+</style>
+
+<div class="help-container">
+  <h1>Help Center</h1>
+
+  <div class="faq-section">
+    <h2>General Questions</h2>
+    <div class="faq">
+      <h3>What is Tuition Media?</h3>
+      <p>Tuition Media is a platform that connects students and parents with verified tutors for personalized in-person or online lessons.</p>
+    </div>
+    <div class="faq">
+      <h3>Is it free to post a tuition requirement?</h3>
+      <p>Yes! Students or guardians can post a tutor request completely free of charge.</p>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>For Students & Parents</h2>
+    <div class="faq">
+      <h3>How do I find a tutor?</h3>
+      <p>Simply go to our “Post a Tuition” page, fill in your requirements, and we’ll match you with suitable tutors in your area.</p>
+    </div>
+    <div class="faq">
+      <h3>Can I choose between home and online tutoring?</h3>
+      <p>Yes, we offer both options. Just specify your preference while posting your tuition requirement.</p>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>For Tutors</h2>
+    <div class="faq">
+      <h3>How can I apply for tuition jobs?</h3>
+      <p>After creating your tutor profile, you can browse tuition listings and apply directly from the dashboard.</p>
+    </div>
+    <div class="faq">
+      <h3>Is there any verification process?</h3>
+      <p>Yes, we verify tutor credentials such as education, experience, and identity for platform trust and safety.</p>
+    </div>
+  </div>
+
+  <div class="contact-box">
+    <h3>Still Need Help?</h3>
+    <p>Email us at <strong>support@tuitionmedia.com</strong> or message us through our <a href="{% url 'contact_us' %}">Contact Form</a>.</p>
+  </div>
+</div>
+{% endblock %}
