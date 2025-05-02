@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST">
+  <h2>Are you sure?</h2>
+  {% csrf_token %}
+
+  <!-- NO button (styled as a link) -->
+  <a href="{% url 'tutor_list' %}">
+    <button type="button">No</button>
+  </a>
+
+  <!-- YES button (form submit) -->
+  <button type="submit" name="YES">Yes</button>
+</form>
+{% endblock %}

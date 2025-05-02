@@ -38,6 +38,7 @@ urlpatterns = [
     path('login/', account_view.login_view, name='login'),
     path('register/', account_view.register_view, name='register'),
     path('profile/', account_view.profile_view, name='profile'),
+
     path('edit_profile_view/', account_view.edit_profile_view, name='edit_profile_view'),
     path('logout/', account_view.logout_view, name='logout'),
     # courses
@@ -49,7 +50,10 @@ urlpatterns = [
     path ('admission_programs/',course_view.admission_programs,name='admission_programs'),
     # students
     path('tutor_list/', students_view.tutor_list, name='tutor_list'),
+
     path('tutor_request/', students_view.tutor_request, name='tutor_request'),
+    path('updateT/<str:id>',students_view.updateT, name='updateT'),
+    path('deleteT/<str:id>', students_view.deleteT, name='deleteT'),
     # tutors
     path('find_tuitions/',tutors_view.find_tuitions, name='find_tuitions'),
     path('tuition_post/', tutors_view.tuition_post, name='tuition_post'),

@@ -1,4 +1,136 @@
-{%extends 'base.html'%}
-{%block content%}
-<h1>tuition post</h1>
-{%endblock%}
+{% extends 'base.html' %}
+
+{% block title %}Tutor Requests and Listings{% endblock %}
+
+{% block content %}
+<style>
+  .form-container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+
+  .checkbox-group {
+    margin: 20px 0;
+  }
+
+  .submit-btn {
+    background-color: #6a1b9a;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .submit-btn:hover {
+    background-color: #4a148c;
+  }
+</style>
+
+<div class="form-container">
+  <h2>Tutor Request</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-row">
+        {{ form.profile_picture.label_tag }}
+        {{ form.profile_picture }}
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        {{ form.name.label_tag }}
+        {{ form.name }}
+      </div>
+      <div class="form-group">
+        {{ form.contact_number.label_tag }}
+        {{ form.contact_number }}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        {{ form.medium.label_tag }}
+        {{ form.medium }}
+      </div>
+      <div class="form-group">
+        {{ form.graduation_info.label_tag }}
+        {{ form.graduation_info }}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        {{ form.institutions.label_tag }}
+        {{ form.institutions }}
+      </div>
+      <div class="form-group">
+        {{ form.experience_years.label_tag }}
+        {{ form.experience_years }}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        {{ form.tuition_fee.label_tag }}
+        {{ form.tuition_fee }}
+      </div>
+
+      <div class="form-group">
+        {{ form.location.label_tag }}
+        {{ form.location }}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        {{ form.short_bio.label_tag }}
+        {{ form.short_bio }}
+      </div>
+      <div class="form-group">
+        {{ form.subjects.label_tag }}
+        {{ form.subjects }}
+      </div>
+    </div>
+
+
+    <div class="checkbox-group">
+      <label>
+        <input type="checkbox" required>
+        By clicking submit, you agree to our terms and policy.
+      </label>
+    </div>
+
+    <button type="submit" class="submit-btn" name="request_tutor">Submit Request</button>
+  </form>
+</div>
+{% endblock %}

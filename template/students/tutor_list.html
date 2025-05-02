@@ -1,4 +1,40 @@
-{%extends 'base.html'%}
-{%block content%}
-<h1>Tutor list</h1>
-{%endblock%}
+<!-- student/templates/student/tutor_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 style="text-align: center; margin-bottom: 2rem;">Available Tutors</h2>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem;">
+    {% for tutor in tutors %}
+    <div class="tutor-card" style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center; text-align: center;">
+
+      <!-- Profile Picture -->
+      {% if tutor.profile_picture %}
+        <img src="{{ tutor.profile_picture.url }}" alt="{{ tutor.name }}" width="120" height="120" style="object-fit: cover; border-radius: 50%; margin-bottom: 15px;">
+      {% else %}
+        <img src="/static/default-profile.png" alt="Default Profile" width="120" height="120" style="object-fit: cover; border-radius: 50%; margin-bottom: 15px;">
+      {% endif %}
+
+      <!-- Tutor Info -->
+      <h3 style="margin: 0;">{{ tutor.name }}</h3>
+      <p style="margin: 5px 0;"><strong>Location:</strong> {{ tutor.location }}</p>
+      <p style="margin: 5px 0;"><strong>Subjects:</strong> {{ tutor.subjects }}</p>
+      <p style="margin: 5px 0;"><strong>Experience:</strong> {{ tutor.experience_years }} years</p>
+      <p style="margin: 5px 0;"><strong>Fee:</strong> {{ tutor.tuition_fee }} BDT/month</p>
+      <p style="font-size: 14px; color: #555;">{{ tutor.short_bio }}</p>
+      <p style="font-size: 12px; color: #999;">Joined on {{ tutor.join_date }}</p>
+
+      <!-- Action Buttons -->
+      <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+        <a href="#" class="btn" style="background-color: #007bff; color: white; padding: 6px 14px; border-radius: 5px; text-decoration: none;">View Profile</a>
+        <a href="#" class="btn" style="background-color: #28a745; color: white; padding: 6px 14px; border-radius: 5px; text-decoration: none;">Send Request</a>
+        <a href="{% url 'updateT' tutor.id %}" class="btn" style="background-color: #ffc107; color: black; padding: 6px 14px; border-radius: 5px; text-decoration: none;">Update</a>
+        <a href="{% url 'deleteT' tutor.id %}" class="btn" style="background-color: #dc3545; color: white; padding: 6px 14px; border-radius: 5px; text-decoration: none;">Delete</a>
+      </div>
+
+    </div>
+    {% empty %}
+      <p>No tutors available right now.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

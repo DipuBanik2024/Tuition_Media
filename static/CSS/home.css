@@ -1,7 +1,7 @@
 /* ===== Body and Background ===== */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #cdffd8, #94b9ff);
+  background: #cdffd8;
   margin: 0;
   padding: 0;
 }
