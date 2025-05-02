@@ -88,9 +88,28 @@
 
     <!-- Login/Register Buttons inside navbar - easier alignment -->
     <div class="auth-buttons">
-      <a class="btn btn-dark btn-sm" href="{% url 'login' %}">LOGIN</a>
-      <a class="btn btn-warning btn-sm" href="{% url 'register' %}">REGISTER</a>
+  {% if user.is_authenticated %}
+    <div class="dropdown">
+      <a class="btn btn-light btn-sm dropdown-toggle d-flex align-items-center" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown">
+        <img src="{% static 'images/default_profile.png' %}" alt="Profile" class="rounded-circle me-2" width="30" height="30">
+        {{ user.username }}
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+        <li><a class="dropdown-item" href="{% url 'profile' %}">View Profile</a></li>
+        <li>
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="dropdown-item text-danger" type="submit">Logout</button>
+          </form>
+        </li>
+      </ul>
     </div>
+  {% else %}
+    <a class="btn btn-dark btn-sm" href="{% url 'login' %}">LOGIN</a>
+    <a class="btn btn-warning btn-sm" href="{% url 'register' %}">REGISTER</a>
+  {% endif %}
+</div>
+
   </div>
 
   <!-- ===== Golden Line Separator Below Navbar ===== -->

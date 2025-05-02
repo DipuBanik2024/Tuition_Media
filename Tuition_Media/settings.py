@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'tutors.apps.TutorsConfig',
     'helpline.apps.HelplineConfig',
 ]
+AUTH_USER_MODEL = 'accounts.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

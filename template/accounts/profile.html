@@ -1,4 +1,83 @@
-{%extends 'base.html'%}
-{%block content%}
-<h1>Profile Page</h1>
-{%endblock%}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+            <div class="card shadow-lg rounded-4">
+                <div class="card-body p-5">
+
+                    <!-- Profile Header -->
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="me-4">
+                            {% if user_profile.profile_picture %}
+                                <img src="{{ user_profile.profile_picture.url }}" class="rounded-circle border" width="150" height="150" style="object-fit:cover;">
+                            {% else %}
+                                <img src="{% static 'images/defaultprofile.png' %}" class="rounded-circle border" width="150" height="150" style="object-fit:cover;">
+                            {% endif %}
+                        </div>
+                        <div>
+                            <h3 class="mb-0">{{ user_profile.name }}</h3>
+                            <p class="text-muted mb-1">{{ user_profile.role }}</p>
+                            <p class="text-muted">{{ user_profile.email }}</p>
+                        </div>
+                        <div class="ms-auto">
+                            <a href="{% url 'edit_profile_view' %}" class="btn btn-outline-primary rounded-pill px-4 me-2">Edit Profile</a>
+                            <a href="{% url 'logout' %}" class="btn btn-danger rounded-pill px-4">Logout</a>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Basic Info -->
+                    <h5 class="mb-3">Basic Information</h5>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <p><strong>Phone:</strong> {{ user_profile.phone }}</p>
+                            <p><strong>Gender:</strong> {{ user_profile.gender }}</p>
+                            <p><strong>Tuition District:</strong> {{ user_profile.district }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Location:</strong> {{ user_profile.location }}</p>
+                            <p><strong>Preferred Area:</strong> {{ user_profile.preferred_area }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Qualifications -->
+                    <h5 class="mb-3">Qualifications</h5>
+                    {% if user_profile.qualifications.all %}
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Degree</th>
+                                    <th>Result</th>
+                                    <th>Year</th>
+                                    <th>Institute</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for qual in user_profile.qualifications.all %}
+                                <tr>
+                                    <td>{{ qual.degree }}</td>
+                                    <td>{{ qual.result }}</td>
+                                    <td>{{ qual.year }}</td>
+                                    <td>{{ qual.institute }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <p class="text-muted">No qualifications added yet.</p>
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

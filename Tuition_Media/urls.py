@@ -35,9 +35,11 @@ urlpatterns = [
     path('contact_us/',main_view.contact_us,name='contact_us'),
     path('about/',main_view.About,name='about'),
     # Account
-    path('login/',account_view.login,name='login'),
-    path('register/', account_view.register, name='register'),
-    path('profile/', account_view.profile, name='profile'),
+    path('login/', account_view.login_view, name='login'),
+    path('register/', account_view.register_view, name='register'),
+    path('profile/', account_view.profile_view, name='profile'),
+    path('edit_profile_view/', account_view.edit_profile_view, name='edit_profile_view'),
+    path('logout/', account_view.logout_view, name='logout'),
     # courses
     path('course_detail/', course_view.course_detail, name='course_detail'),
     path('course_list/', course_view.course_list, name='course_list'),

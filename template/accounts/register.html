@@ -1,4 +1,111 @@
-{%extends 'base.html'%}
-{%block content%}
-<h1>Register Page</h1>
-{%endblock%}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg rounded-4">
+                <div class="card-body p-4">
+                    <h3 class="text-center mb-4">Register</h3>
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <!-- Tutor / Student selection -->
+                                 <!-- Tutor / Student selection -->
+<div class="d-flex justify-content-center mb-4">
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="tutorRadio" name="role" value="Tutor" required>
+        <label class="form-check-label" for="tutorRadio">
+            <img src="{% static 'images/tutor.png' %}" width="40" alt="Tutor"> Tutor
+        </label>
+    </div>
+    <div class="form-check form-check-inline ms-4">
+        <input class="form-check-input" type="radio" id="studentRadio" name="role" value="Student" required>
+        <label class="form-check-label" for="studentRadio">
+            <img src="{% static 'images/student.png' %}" width="40" alt="Student"> Student
+        </label>
+    </div>
+</div>
+
+
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name..." required>
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="mb-3">
+                            <label for="gender" class="form-label">Gender <span class="text-danger">*</span></label>
+                            <select class="form-select" id="gender" name="gender" required>
+                                <option value="">Choose One</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+
+                        <!-- Email and Phone -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="ex: user@gmail.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="ex: 01........" required>
+                            </div>
+                        </div>
+
+                        <!-- District & Location -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="district" class="form-label">Tuition District</label>
+                                <input type="text" class="form-control" id="district" name="district" placeholder="Enter District">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="location" class="form-label">Your Location</label>
+                                <input type="text" class="form-control" id="location" name="location" placeholder="Enter Your Location">
+                            </div>
+                        </div>
+
+                        <!-- Preferred Area -->
+                        <div class="mb-3">
+                            <label for="preferred_area" class="form-label">Preferred Tuition Area <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="preferred_area" name="preferred_area" placeholder="Enter Preferred Area" required>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="confirm_password" class="form-label">Re-Password <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Re-enter Password" required>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill mt-2 py-2">Submit & Register</button>
+
+                        <!-- Error Message -->
+                        {% if error %}
+                        <div class="text-danger text-center mt-2">{{ error }}</div>
+                        {% endif %}
+
+                        <!-- Login link -->
+                        <div class="text-center mt-3">
+                            Already have an account? <a href="{% url 'login' %}">Sign in</a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

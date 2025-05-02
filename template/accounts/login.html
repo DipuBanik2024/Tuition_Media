@@ -1,4 +1,42 @@
-{%extends 'base.html'%}
-{%block content%}
-<h1>Login Page</h1>
-{%endblock%}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg rounded-4">
+                <div class="card-body p-4">
+                    <h3 class="text-center mb-4">Login</h3>
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="identifier" class="form-label">Email or Phone <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="identifier" name="identifier" placeholder="Enter Email or Phone" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill mt-2 py-2">Login</button>
+
+                        {% if error %}
+                        <div class="text-danger text-center mt-2">{{ error }}</div>
+                        {% endif %}
+
+                        <div class="text-center mt-3">
+                            Don't have an account? <a href="{% url 'register' %}">Register here</a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

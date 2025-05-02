@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-lg rounded-4">
+                <div class="card-body p-5">
+                    <h3 class="text-center mb-4">Edit Your Profile</h3>
+
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <!-- Profile Picture -->
+                        <div class="text-center mb-4">
+                            {% if user_profile.profile_picture %}
+                                <img src="{{ user_profile.profile_picture.url }}" class="rounded-circle" width="150" height="150" style="object-fit:cover;">
+                            {% else %}
+                                <img src="{% static 'images/defaultprofile.png' %}" class="rounded-circle" width="150" height="150" style="object-fit:cover;">
+                            {% endif %}
+                            <div class="mt-2">
+                                <input type="file" name="profile_picture" class="form-control mt-2">
+                            </div>
+                        </div>
+
+                        <!-- Basic Info -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="name" value="{{ user_profile.name }}" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="phone" value="{{ user_profile.phone }}" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Tuition District</label>
+                                <input type="text" class="form-control" name="district" value="{{ user_profile.district }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Your Location</label>
+                                <input type="text" class="form-control" name="location" value="{{ user_profile.location }}">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Preferred Tuition Area</label>
+                            <input type="text" class="form-control" name="preferred_area" value="{{ user_profile.preferred_area }}">
+                        </div>
+
+                        <hr>
+
+                        <!-- Qualifications -->
+                        <h5 class="mt-4 mb-3">Qualifications</h5>
+
+                        <div id="qualification-fields">
+                            {% if user_profile.qualifications.all %}
+                                {% for qual in user_profile.qualifications.all %}
+                                    <div class="row qualification-item mb-2">
+                                        <div class="col-md-3">
+                                            <select class="form-select" name="degree">
+                                                <option value="">Degree</option>
+                                                <option value="SSC" {% if qual.degree == 'SSC' %}selected{% endif %}>SSC</option>
+                                                <option value="HSC" {% if qual.degree == 'HSC' %}selected{% endif %}>HSC</option>
+                                                <option value="BSc" {% if qual.degree == 'BSc' %}selected{% endif %}>BSc</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control" name="result" placeholder="Result" value="{{ qual.result }}">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control" name="year" placeholder="Year" value="{{ qual.year }}">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="institute" placeholder="Institute" value="{{ qual.institute }}">
+                                        </div>
+                                        <div class="col-md-1 d-flex align-items-center">
+                                            <button type="button" class="btn btn-danger btn-sm remove-qualification">&times;</button>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="row qualification-item mb-2">
+                                    <div class="col-md-3">
+                                        <select class="form-select" name="degree">
+                                            <option value="">Degree</option>
+                                            <option value="SSC">SSC</option>
+                                            <option value="HSC">HSC</option>
+                                            <option value="BSc">BSc</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" name="result" placeholder="Result">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" name="year" placeholder="Year">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="institute" placeholder="Institute">
+                                    </div>
+                                    <div class="col-md-1 d-flex align-items-center">
+                                        <button type="button" class="btn btn-danger btn-sm remove-qualification">&times;</button>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <button type="button" class="btn btn-secondary btn-sm mt-2" id="add-qualification">Add More</button>
+
+                        <script>
+                        document.getElementById('add-qualification').addEventListener('click', function() {
+                            var container = document.getElementById('qualification-fields');
+                            var newField = container.firstElementChild.cloneNode(true);
+                            newField.querySelectorAll('input, select').forEach(input => input.value = '');
+                            container.appendChild(newField);
+                        });
+
+                        document.addEventListener('click', function(e) {
+                            if(e.target && e.target.classList.contains('remove-qualification')) {
+                                var items = document.querySelectorAll('.qualification-item');
+                                if (items.length > 1) {
+                                    e.target.closest('.qualification-item').remove();
+                                }
+                            }
+                        });
+                        </script>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill mt-4 py-2">Update Profile</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
