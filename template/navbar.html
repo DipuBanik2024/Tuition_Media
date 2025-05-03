@@ -1,9 +1,11 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% load static %}
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Tuition Media</title>
 </head>
 
@@ -91,8 +93,8 @@
   {% if user.is_authenticated %}
     <div class="dropdown">
       <a class="btn btn-light btn-sm dropdown-toggle d-flex align-items-center" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown">
-        <img src="{% static 'images/default_profile.png' %}" alt="Profile" class="rounded-circle me-2" width="30" height="30">
-        {{ user.username }}
+        <img src="{% static 'images/default_profile.png' %}" alt="Profile" class="rounded-circle me-2" width="30" height="30">{{ user.get_username }}
+
       </a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
         <li><a class="dropdown-item" href="{% url 'profile' %}">View Profile</a></li>

@@ -3,6 +3,9 @@ from students.models import tutor_request_post
 from students.forms import TutorRequestForm  # Assuming this is the form for the post
 from .forms import TutorPostForm
 from .models import Tutor
+from django.contrib.auth.decorators import login_required
+
+
 # View: Show all tuition posts (for tutors to browse)
 def find_tuitions(request):
     posts = tutor_request_post.objects.all().order_by('-timestamp')
@@ -30,7 +33,7 @@ def delete(request, id):
     return render(request, 'tutors/delete.html')
 
 # ✅ Updated View: Create a new tuition post
-
+@login_required(login_url='login')
 def tuition_post(request):
     if request.method == 'POST':
         form = TutorPostForm(request.POST, request.FILES)
