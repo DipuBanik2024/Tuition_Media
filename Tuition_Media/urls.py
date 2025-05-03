@@ -45,7 +45,7 @@ urlpatterns = [
     path('course_detail/', course_view.course_detail, name='course_detail'),
     path('course_list/', course_view.course_list, name='course_list'),
     path('lecture_notes/', course_view.lecture_notes, name='lecture_notes'),
-    path('skill_development/', course_view.skill_development, name='skill_development'),
+    path('skill_development/', course_view.skill_development_view ,name='skill_development'),
     path ('ssc_hsc_academic_programs/',course_view.ssc_hsc_academic_programs,name='ssc_hsc_academic_programs'),
     path ('admission_programs/',course_view.admission_programs,name='admission_programs'),
     # students

@@ -1,4 +1,173 @@
-{%extends 'base.html'%}
-{%block content%}
-<h1>Skill Devolopment</h1>
-{%endblock%}
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+  body {
+    background-color: #f9fafb;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .container {
+    max-width: 100%;
+    margin: 40px auto;
+    padding: 0 30px;
+    position: relative;
+  }
+
+  .heading {
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .scroll-row {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .scroll-row::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .scroll-row::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 4px;
+  }
+
+  .video-card {
+    flex: 0 0 auto;
+    width: calc(33.33% - 20px); /* Adjusted for 3 items in a row */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    padding: 16px;
+    scroll-snap-align: start;
+    cursor: pointer;
+    transition: transform 0.15s ease-in-out; /* Quick and smooth transition */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .video-card:hover {
+    transform: scale(1.02); /* Extra subtle zoom effect on hover */
+  }
+
+  .video-title {
+    font-size: 18px;
+    font-weight: bold; /* Bold title */
+    color: #111827;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #000;
+    margin-bottom: 10px;
+  }
+
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.15s ease-in-out;
+  }
+
+  .video-description {
+    font-size: 14px;
+    color: #6b7280;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .video-description strong {
+    font-weight: bold; /* Ensuring the description is bold */
+  }
+
+  /* Green Rectangle on the right side */
+  .green-rectangle {
+    width: 100px;  /* Adjust the width as needed */
+    height: 40px;
+    background-color: #4caf50; /* Green Color */
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;  /* Pushes it to the right */
+    margin-top: 10px;
+  }
+
+  /* Very subtle zoom-in effect */
+  .zoomed-in .video-container video {
+    transform: scale(1.02); /* Extra subtle zoom */
+  }
+
+  .zoomed-in .video-card {
+    z-index: 1000;
+    transform: scale(1.02); /* Extra subtle zoom effect */
+  }
+</style>
+
+<script>
+  // Function to toggle very subtle zoom effect on video click
+  function toggleZoom(event) {
+    const videoCard = event.currentTarget;
+    const isZoomed = videoCard.classList.contains('zoomed-in');
+
+    // If zoomed in, reset it
+    if (isZoomed) {
+      videoCard.classList.remove('zoomed-in');
+    } else {
+      // Remove zoom from any currently zoomed-in card
+      const zoomedCards = document.querySelectorAll('.zoomed-in');
+      zoomedCards.forEach(card => card.classList.remove('zoomed-in'));
+
+      // Add zoom to the clicked video card
+      videoCard.classList.add('zoomed-in');
+    }
+  }
+</script>
+
+<div class="container">
+  <h2 class="heading">Skill Development Videos</h2>
+
+  {% if videos %}
+    <div class="scroll-row">
+      {% for video in videos %}
+        <div class="video-card" onclick="toggleZoom(event)">
+          <h3 class="video-title">{{ video.title }}</h3>
+          <div class="video-container">
+            <video controls>
+              <source src="{{ video.video_file.url }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p class="video-description"><strong>{{ video.description }}</strong></p> <!-- Strong tag for bold -->
+          <div class="green-rectangle">
+            Free
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p style="text-align: center; color: #888;">No videos uploaded yet.</p>
+  {% endif %}
+</div>
+
+{% endblock %}

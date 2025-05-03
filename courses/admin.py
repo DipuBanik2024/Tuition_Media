@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import Course
+from .models import SkillVideo
+from .models import AcademicProgramVideo
+from .models import AdmissionProgram
+
+
+
 # Register your models here.
-
-
-
-@admin.register(Course)
-class CourseAdmin(admin.ModelAdmin):
-    list_display = ['title', 'course_type', 'teacher', 'created_at']
-    search_fields = ['title', 'teacher__username']
-    list_filter = ['course_type', 'created_at']
+admin.site.register(SkillVideo)
+admin.site.register(AcademicProgramVideo)
+admin.site.register(AdmissionProgram)
