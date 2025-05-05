@@ -1,8 +1,19 @@
-<!-- student/templates/student/tutor_list.html -->
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2 style="text-align: center; margin-bottom: 2rem;">Available Tutors</h2>
+  <h2 style="text-align: center; margin-bottom: 2rem;color:blue;margin-top:30px;font-weight: bold;">Available Tutors</h2>
+
+  <!-- Search/Filter Form -->
+  <div style="margin-bottom: 2rem; text-align: center;">
+    <form method="get" action="" style="display: inline-block; text-align: center;">
+      <input type="text" name="location" placeholder="Location" value="{{ request.GET.location }}" style="padding: 8px; margin: 5px; border-radius: 5px;">
+      <input type="number" name="tuition_fee" placeholder="Max Tuition Fee" value="{{ request.GET.tuition_fee }}" style="padding: 8px; margin: 5px; border-radius: 5px;">
+      <input type="text" name="subjects" placeholder="Subject (e.g. Math)" value="{{ request.GET.subjects }}" style="padding: 8px; margin: 5px; border-radius: 5px;">
+      <button type="submit" style="padding: 8px 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; width: 100px;">Search</button>
+   <button type="button" onclick="window.location.href='{% url 'tutor_list' %}'" style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 5px; width: 100px; height: 40px;">Reset</button>
+
+    </form>
+  </div>
 
   <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem;">
     {% for tutor in tutors %}

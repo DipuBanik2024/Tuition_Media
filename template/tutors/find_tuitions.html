@@ -6,9 +6,19 @@
 {% endblock %}
 
 {% block content %}
-
+<h2 style="text-align: center; margin-bottom: 2rem;color:blue;margin-top:30px;font-weight: bold;">Find Tuitions</h2>
 <div class="container mt-4">
-  <h1 class="text-2xl font-bold mb-4">Find Tuitions</h1>
+
+  <!-- ✅ Filter Form -->
+  <form method="GET" action="{% url 'find_tuitions' %}" class="mb-6 p-4 bg-white rounded shadow flex flex-wrap gap-4" style="text-align: center;">
+   <input type="text" name="location" placeholder="Location" value="{{ request.GET.location }}" style="padding: 8px; margin: 5px; border-radius: 5px; width: 180px;">
+    <input type="text" name="subject" placeholder="Subject" value="{{ request.GET.subject }}" style="padding: 8px; margin: 5px; border-radius: 5px; width: 180px;">
+    <input type="number" name="salary" placeholder="Max Salary" value="{{ request.GET.salary }}" style="padding: 8px; margin: 5px; border-radius: 5px; width: 180px;">
+    <button type="submit" style="padding: 8px 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; width: 100px;">Search</button>
+   <button type="button" onclick="window.location.href='{% url 'tuition_post' %}'" style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 5px; width: 100px; height: 40px;">Reset</button>
+
+  </form>
+
 
   {% if posts %}
     {% for post in posts %}

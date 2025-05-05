@@ -21,6 +21,24 @@ def tutor_request(request):
 
 def tutor_list(request):
     tutors = Tutor.objects.all().order_by('-timestamp')
+
+    # Get filter parameters from GET request
+    location = request.GET.get('location')
+    fee = request.GET.get('tuition_fee')
+    subject = request.GET.get('subjects')
+
+    # Apply filters if they exist
+    if location:
+        tutors = tutors.filter(location__icontains=location)
+    if fee:
+        try:
+            fee = float(fee)
+            tutors = tutors.filter(tuition_fee__lte=fee)
+        except ValueError:
+            pass  # ignore invalid fee input
+    if subject:
+        tutors = tutors.filter(subjects__icontains=subject)
+
     return render(request, 'students/tutor_list.html', {'tutors': tutors})
 
 def updateT(request, id):

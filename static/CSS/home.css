@@ -1,171 +1,69 @@
-/* ===== Body and Background ===== */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #cdffd8;
-  margin: 0;
-  padding: 0;
+.hero-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  background-color: #e8edff;
 }
 
-/* Page Wrapper to adjust height and make footer visible only after scroll */
-.page-wrapper {
-  min-height: 100vh; /* Adjust the height to 150% of viewport height */
+.hero-left, .hero-right {
+  flex: 1 1 400px;
+  max-width: 500px;
+  margin: 20px;
+  text-align: center;
+}
+
+.hero-left {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: flex-start; /* Align content to the left */
 }
 
-/* ===== Top Bar ===== */
-.top-bar {
-  background: #fff;
-  padding: 10px 30px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  border-bottom: 2px solid #ddd;
-}
-
-.top-bar a {
-  margin-left: 10px;
-  border-radius: 20px;
-}
-
-/* ===== Header Bar ===== */
-.header-bar {
-  background: #fff;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-/* ===== Hero Section ===== */
-.hero {
-  text-align: left;
-  padding: 30px 30px 20px;
-}
-
-.hero h1 {
-  font-size: 2.9rem;
+.hero-left h1,
+.hero-right h2 {
   font-weight: bold;
-  color: #1a1a1a;
+  color: #000;
+  margin-bottom: 10px;
 }
 
-.hero .first-line {
-  margin-left: 30px;
+.highlight-blue {
+  color: #00a8cc;
 }
 
-.hero .best-text {
-  color: #000000; /* Black color */
-}
-
-.hero .platform-text {
-  color: #007bff; /* Blue color */
-}
-
-.hero .second-line {
-  display: block;
-  color: black;
-  font-size: 2.9rem;
-  margin: 20px 0;
-}
-
-.hero h1 span {
-  color: #007bff;
-}
-
-.hero p {
-  color: blue;
-  font-size: 1.2rem;
-  margin: 20px 0;
-  margin-left: 35px;
-}
-
-/* Tree Background Image */
-.tree-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url("{% static 'images/treelogo.png' %}");
-  background-size: 30%;
-  background-position: 20% 120%;
-  background-repeat: no-repeat;
-  opacity: 0.2;
-  z-index: -1;
-}
-
-/* ===== Tutor Student Image ===== */
-.tutorstudent-image {
-  width: 40%;
-  padding: 20px;
-  box-sizing: border-box;
-  position: absolute;
-  top: 100px; /* Adjust as needed */
-  right: 30px;
-  z-index: 0; /* Keep it behind interactive elements if needed */
-}
-
-.tutorstudent-image img {
-  width: 100%;
-  height: auto;
-}
-
-/* ===== Search Buttons ===== */
-.search-buttons {
-  margin-left: 60px;
-}
-
-.search-buttons button {
-  margin: 15px 40px 10px 0;
-  padding: 8px 21px;
-  border-radius: 30px;
-  border: 2px solid #b8895d !important;
-  background: linear-gradient(to right, #94b9ff, #cdffd8);
-  transition: all 0.3s ease;
-  font-weight: bold;
-  color: black;
-}
-
-.search-buttons button:hover {
-  background: linear-gradient(to right, #007991, #78ffd6);
-  color: black;
-  transform: scale(1.05);
-}
-
-/* ===== Stats Section ===== */
-.stats-section {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding: 22px 10px;
-  margin-left: 18px;
-  margin-top: 40px;
-}
-
-.stat-box {
-  background: linear-gradient(to right, #cdffd8, #94b9ff);
-  padding: 15px 20px;
-  border-radius: 10px;
-  text-align: center;
-  min-width: 180px;
-  transition: transform 0.3s ease;
-}
-
-.stat-box:hover {
-  transform: translateY(-5px);
-  background: linear-gradient(to right, #007991, #78ffd6);
-}
-
-.stat-box h5 {
-  font-weight: bold;
-  color: #003f88;
-}
-
-.stat-box p {
-  margin: 0;
+.hero-left p,
+.hero-right p {
+  font-size: 1rem;
   font-weight: 500;
   color: #333;
+  margin: 10px 0 20px;
+}
+
+.hero-button {
+  display: inline-block;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #1e7e34;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  margin-top: 20px;
+  margin-left: 30px; /* Move the image slightly left */
+}
+
+.hero-right .hero-image img {
+  margin-top: -80px; /* Move right side image up */
+
+  margin-right : -80px;
 }

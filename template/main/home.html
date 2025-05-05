@@ -6,48 +6,28 @@
 {% endblock %}
 
 {% block content %}
- <div class="page-wrapper">
-  <!-- Hero Section -->
-  <div class="hero">
+<div class="hero-section">
+  <!-- Left Section -->
+  <div class="hero-left">
     <h1>
-      <span class="first-line">
-        <span class="best-text">Best</span>
-        <span class="platform-text">Tutoring Platform</span>
-      </span><br>
-      <span class="second-line">for Home & Online Tuitions</span>
+      Best <span class="highlight-blue">Tutoring Platform</span><br>
+      for Home & Online Tuitions
     </h1>
-    <p><i class="bi bi-geo-alt-fill"></i> FIND THE RIGHT TUTOR & TUITION IN YOUR AREA</p>
-    <div class="search-buttons">
-      <a href="{% url 'tutor_list' %}">
-        <button class="btn border-dark">🔍 FIND TUTORS</button>
-      </a>
-      <a href="{% url 'find_tuitions' %}">
-        <button class="btn border-dark">🔍 FIND TUITIONS</button>
-      </a>
+    <p><i class="bi bi-geo-alt-fill"></i> Find the Right Tutor in Your Area</p>
+    <a href="{% url 'tutor_list' %}" class="hero-button">FIND TUTORS</a>
+    <div class="hero-image">
+      <img src="{% static 'images/finding_tuition.png' %}" alt="Tutor Student Image">
     </div>
   </div>
 
-  <!-- Tutor Student Image -->
-  <div class="tutorstudent-image">
-    <img src="{% static 'images/tutor_studentlogo.png' %}" alt="Home page Tutor Student Image">
+  <!-- Right Section -->
+  <div class="hero-right">
+    <div class="hero-image">
+      <img src="{% static 'images/tutor_and_student.png' %}" alt="Tutor Student Image">
+    </div>
+    <h2>SEARCH TUTORING JOBS</h2>
+    <p><i class="bi bi-geo-alt-fill"></i> Find Your Tuition Jobs, in your area</p>
+    <a href="{% url 'find_tuitions' %}" class="hero-button green">FIND TUITION JOBS</a>
   </div>
-
-  <!-- Stats Section -->
-  <div class="stats-section">
-    <div class="stat-box">
-      <h5>📘 TUTORS</h5>
-      <p>1255 Verified Tutors</p>
-    </div>
-    <div class="stat-box">
-      <h5>📗 TUITIONS</h5>
-      <p>1269 Available Tuitions</p>
-    </div>
-    <div class="stat-box">
-      <h5>📌 COURSES</h5>
-      <p>272 Total Courses</p>
-    </div>
-  </div>
-
-  <!-- Background Tree (fixed with dynamic image path) -->
-  <div class="tree-background"></div>
+</div>
 {% endblock %}

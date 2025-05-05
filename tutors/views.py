@@ -9,8 +9,33 @@ from django.contrib.auth.decorators import login_required
 # View: Show all tuition posts (for tutors to browse)
 def find_tuitions(request):
     posts = tutor_request_post.objects.all().order_by('-timestamp')
-    context = {'posts': posts}
+
+    # Get filter parameters from GET request
+    location = request.GET.get('location')
+    salary = request.GET.get('salary')
+    subject = request.GET.get('subject')
+
+    # Apply filters
+    if location:
+        posts = posts.filter(location__icontains=location)
+    if salary:
+        try:
+            salary = float(salary)
+            posts = posts.filter(salary__lte=salary)
+        except ValueError:
+            pass  # Ignore invalid salary inputs
+    if subject:
+        posts = posts.filter(subject__icontains=subject)  # ✅ Correct field name
+
+    context = {
+        'posts': posts,
+        'location': location or '',
+        'salary': salary or '',
+        'subject': subject or ''
+    }
     return render(request, 'tutors/find_tuitions.html', context)
+
+
 
 # View: Update tuition post
 def update(request, id):
