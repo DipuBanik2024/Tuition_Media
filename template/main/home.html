@@ -3,18 +3,24 @@
 
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 {% endblock %}
 
 {% block content %}
 <div class="hero-section">
   <!-- Left Section -->
   <div class="hero-left">
-    <h1>
-      Best <span class="highlight-blue">Tutoring Platform</span><br>
-      for Home & Online Tuitions
+    <h1 class="hero-heading">
+      Best <span class="highlight-blue">Tutoring Platform</span>
     </h1>
-    <p><i class="bi bi-geo-alt-fill"></i> Find the Right Tutor in Your Area</p>
-    <a href="{% url 'tutor_list' %}" class="hero-button">FIND TUTORS</a>
+    <h2 class="sub-heading">
+      for Home & Online Tuitions
+    </h2>
+
+    <p class="find-tutor-text"><i class="fas fa-map-marker-alt location-icon"></i>
+   Find the Right Tutor in Your Area</p>
+   <br> <a href="{% url 'tutor_list' %}" class="hero-button">FIND TUTORS</a>
     <div class="hero-image">
       <img src="{% static 'images/finding_tuition.png' %}" alt="Tutor Student Image">
     </div>
@@ -26,8 +32,8 @@
       <img src="{% static 'images/tutor_and_student.png' %}" alt="Tutor Student Image">
     </div>
     <h2>SEARCH TUTORING JOBS</h2>
-    <p><i class="bi bi-geo-alt-fill"></i> Find Your Tuition Jobs, in your area</p>
-    <a href="{% url 'find_tuitions' %}" class="hero-button green">FIND TUITION JOBS</a>
+    <p class="find-tuition-text"><i class="fas fa-map-marker-alt location-icon"></i> Find Your Tuition Jobs, in your area</p>
+    <br><a href="{% url 'find_tuitions' %}" class="hero-button green">FIND TUITION JOBS</a>
   </div>
 </div>
 {% endblock %}

@@ -1,3 +1,51 @@
+.hero-heading {
+  font-size: 2.2rem;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  margin-top: -15px;
+  text-align: left;
+}
+
+.sub-heading {
+  font-size: 2.2rem;
+  color: black;
+  text-align: left;
+  margin-top: -5px;
+  margin-left: -30px;
+  font-weight: bold !important;
+}
+
+.highlight-blue {
+  color: #00a8cc;
+}
+
+.location-icon {
+  font-size: 20px;
+  color: #007bff;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.find-tutor-text {
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: -15px;
+  color: black;
+}
+
+.find-tuition-text {
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: -30px;
+  color: black;
+}
+
+p {
+  display: inline-flex;
+  align-items: center;
+}
+
 .hero-section {
   display: flex;
   justify-content: space-around;
@@ -14,29 +62,35 @@
   text-align: center;
 }
 
-.hero-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Align content to the left */
+.hero-image img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  margin-top: 20px;
+  animation: floatImage 3s ease-in-out infinite;
 }
 
-.hero-left h1,
-.hero-right h2 {
+.hero-right .hero-image {
+  margin-left: 110px;
+  margin-top: -70px;
+}
+
+/* 👇 Floating Animation */
+@keyframes floatImage {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.hero-left h1, .hero-right h2 {
   font-weight: bold;
   color: #000;
-  margin-bottom: 10px;
-}
-
-.highlight-blue {
-  color: #00a8cc;
-}
-
-.hero-left p,
-.hero-right p {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #333;
-  margin: 10px 0 20px;
 }
 
 .hero-button {
@@ -52,18 +106,4 @@
 
 .hero-button:hover {
   background-color: #1e7e34;
-}
-
-.hero-image img {
-  width: 100%;
-  max-width: 350px;
-  height: auto;
-  margin-top: 20px;
-  margin-left: 30px; /* Move the image slightly left */
-}
-
-.hero-right .hero-image img {
-  margin-top: -80px; /* Move right side image up */
-
-  margin-right : -80px;
 }
