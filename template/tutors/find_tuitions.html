@@ -221,7 +221,7 @@
       <input type="text" name="subject" placeholder="Subject" value="{{ request.GET.subject }}">
       <input type="number" name="salary" placeholder="Max Salary" value="{{ request.GET.salary }}">
       <button type="submit" class="btn-search glow-on-hover">Search</button>
-      <button type="button" onclick="window.location.href='{% url 'tuition_post' %}'" class="btn-reset glow-on-hover">Reset</button>
+      <button type="button" onclick="window.location.href='{% url 'find_tuitions' %}'" class="btn-reset glow-on-hover">Reset</button>
     </form>
   </div>
 
