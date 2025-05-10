@@ -2,38 +2,52 @@
 {% load static %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'css/home.css' %}">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="hero-section">
-  <!-- Left Section -->
-  <div class="hero-left">
-    <h1 class="hero-heading">
-      Best <span class="highlight-blue">Tutoring Platform</span>
-    </h1>
-    <h2 class="sub-heading">
-      for Home & Online Tuitions
-    </h2>
+<section class="home-hero container py-5">
 
-    <p class="find-tutor-text"><i class="fas fa-map-marker-alt location-icon"></i>
-   Find the Right Tutor in Your Area</p>
-   <br> <a href="{% url 'tutor_list' %}" class="hero-button">FIND TUTORS</a>
-    <div class="hero-image">
-      <img src="{% static 'images/finding_tuition.png' %}" alt="Tutor Student Image">
+  <!-- First Section: Find a Tutor -->
+  <div class="row align-items-center">
+    <!-- Left -->
+    <div class="col-md-6 mb-4">
+      <h1 class="fw-bold">
+        Best <span class="text-primary">Tutoring Platform</span><br>
+        for <span class="text-purple">Home & Online Tuitions</span>
+      </h1>
+      <p class="text-muted mt-3"><i class="fas fa-map-marker-alt me-2"></i> <b>Find the Right Tutor in Your Area</b></p>
+      <a href="{% url 'tutor_list' %}" class="btn btn-primary btn-lg mt-3 px-4">FIND A TUTOR →</a>
+
+      <div class="mt-4 d-flex flex-wrap gap-3">
+
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="col-md-6 text-center">
+      <img src="{% static 'images/tutor_and_student.png' %}" alt="Tutor Illustration" class="img-fluid">
     </div>
   </div>
 
-  <!-- Right Section -->
-  <div class="hero-right">
-    <div class="hero-image">
-      <img src="{% static 'images/tutor_and_student.png' %}" alt="Tutor Student Image">
+  <!-- Second Section: Find Tuition Jobs -->
+  <div class="row align-items-center mt-5 p-5 bg-white rounded shadow-sm">
+    <!-- Left Side: Image -->
+    <div class="col-md-6 text-center mb-4 mb-md-0">
+      <img src="{% static 'images/finding_tuition.png' %}" alt="Find Tuition Image" class="img-fluid">
     </div>
-    <h2>SEARCH TUTORING JOBS</h2>
-    <p class="find-tuition-text"><i class="fas fa-map-marker-alt location-icon"></i> Find Your Tuition Jobs, in your area</p>
-    <br><a href="{% url 'find_tuitions' %}" class="hero-button green">FIND TUITION JOBS</a>
+
+    <!-- Right Side: Text -->
+    <div class="col-md-6">
+      <h2 class="fw-bold text-purple">SEARCH TUTORING JOBS</h2>
+      <p class="text-muted"><i class="fas fa-map-marker-alt me-2"></i> <b>Find Your Tuition Jobs, in your area</b></p>
+      <p class="text-secondary fs-6 mt-3">
+        Looking for interesting tuition jobs to excel your teaching experience?<br>
+        We offers <strong>500+</strong> open home tuition jobs that are genuine and 100% verified.
+        Whether you're starting your career or already an expert, we help you find the right match.
+      </p>
+      <a href="{% url 'find_tuitions' %}" class="btn btn-success btn-lg mt-3 px-4">SEARCH TUITION →</a>
+    </div>
   </div>
-</div>
+</section>
 {% endblock %}

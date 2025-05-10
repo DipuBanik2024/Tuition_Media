@@ -2,67 +2,303 @@
 {% load static %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'css/find_tuitions.css' %}">
+  <style>
+    .container {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .sidebar {
+      min-width: 250px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+      margin-left: -70px;
+    }
+
+    .sidebar h4 {
+      margin-bottom: 20px;
+      color: #007bff;
+      text-align: center;
+    }
+
+    .sidebar input,
+    .sidebar button {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .sidebar button {
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar .btn-search {
+      background-color: #007bff;
+    }
+
+    .sidebar .btn-reset {
+      background-color: #dc3545;
+    }
+
+    .sidebar button:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+
+    .card-grid-wrapper {
+      flex: 1;
+      overflow-y: visible;
+      max-height: none;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .tuition-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.08);
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tuition-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0, 123, 255, 0.3);
+    }
+
+    .title {
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .tags {
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      background-color: #e9ecef;
+      color: white;
+      border-radius: 20px;
+      padding: 4px 10px;
+      margin-right: 5px;
+      font-size: 13px;
+    }
+      .tag.home {
+      background-color: #4B0082;
+    }
+
+     .tag.time {
+     background-color: #0d6efd;
+    }
+    .tuition-card-body {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .salary {
+      color: green;
+      font-weight: bold;
+    }
+
+    .card-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn.update {
+      background-color: #17a2b8;
+    }
+
+    .btn.delete {
+      background-color: #dc3545;
+    }
+
+    .glow-on-hover:hover {
+      box-shadow: 0 0 10px #007bff, 0 0 20px #007bff;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .tuition-card-body {
+        flex-direction: column;
+      }
+    }
+
+    .new-post-btn {
+      text-align: right;
+      margin: 30px 0 10px;
+    }
+
+    .blurred {
+      filter: blur(5px);
+      pointer-events: none;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal .modal-header {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .modal .modal-footer {
+      text-align: center;
+    }
+
+    .modal .btn {
+      margin: 0 10px;
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
-<h2 style="text-align: center; margin-bottom: 2rem;color:blue;margin-top:30px;font-weight: bold;">Find Tuitions</h2>
+<h2 style="text-align: center; margin-bottom: 3rem; color:Black; margin-top:30px; font-weight: bold;">Find Tuitions</h2>
+
 <div class="container mt-4">
+  <!-- Sidebar Filter -->
+  <div class="sidebar">
+    <h4>Filter</h4>
+    <form method="GET" action="{% url 'find_tuitions' %}" style="display: flex; flex-direction: column; gap: 10px;">
+      <input type="text" name="location" placeholder="Location" value="{{ request.GET.location }}">
+      <input type="text" name="subject" placeholder="Subject" value="{{ request.GET.subject }}">
+      <input type="number" name="salary" placeholder="Max Salary" value="{{ request.GET.salary }}">
+      <button type="submit" class="btn-search glow-on-hover">Search</button>
+      <button type="button" onclick="window.location.href='{% url 'tuition_post' %}'" class="btn-reset glow-on-hover">Reset</button>
+    </form>
+  </div>
 
-  <!-- ✅ Filter Form -->
-  <form method="GET" action="{% url 'find_tuitions' %}" class="mb-6 p-4 bg-white rounded shadow flex flex-wrap gap-4" style="text-align: center;">
-   <input type="text" name="location" placeholder="Location" value="{{ request.GET.location }}" style="padding: 8px; margin: 5px; border-radius: 5px; width: 180px;">
-    <input type="text" name="subject" placeholder="Subject" value="{{ request.GET.subject }}" style="padding: 8px; margin: 5px; border-radius: 5px; width: 180px;">
-    <input type="number" name="salary" placeholder="Max Salary" value="{{ request.GET.salary }}" style="padding: 8px; margin: 5px; border-radius: 5px; width: 180px;">
-    <button type="submit" style="padding: 8px 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; width: 100px;">Search</button>
-   <button type="button" onclick="window.location.href='{% url 'tuition_post' %}'" style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 5px; width: 100px; height: 40px;">Reset</button>
+  <!-- Tuition Cards -->
+  <div class="card-grid-wrapper">
+    <div class="card-grid">
+      {% if posts %}
+        {% for post in posts %}
+          <div class="tuition-card">
+            <h3 class="title">Tutor Needed For {{ post.subject }} ({{ post.student_class }})</h3>
+            <div class="tags">
+              <span class="tag home">Home Tutoring</span>
+              <span class="tag time">Posted just now</span>
+            </div>
+            <div class="tuition-card-body">
+              <div class="column">
+                <p><strong>Medium:</strong> {{ post.medium }}</p>
+                <p><strong>Tutoring Days:</strong> {{ post.tutoring_days }} days/week</p>
+                <p><strong>District:</strong> {{ post.district }}</p>
+                <p><strong>Location:</strong> {{ post.location }}</p>
+              </div>
+              <div class="column">
+                <p><strong>Class:</strong> {{ post.student_class }}</p>
+                <p><strong>Subject:</strong> {{ post.subject }}</p>
+                <p><strong>Contact:</strong> {{ post.contact_number }}</p>
+              </div>
+              <div class="column">
+                <p><strong>Preferred Tutor:</strong> {{ post.preferred_tutor }}</p>
+                <p><strong>Salary:</strong> <span class="salary">৳{{ post.salary }}</span> / Month</p>
+              </div>
 
-  </form>
-
-
-  {% if posts %}
-    {% for post in posts %}
-      <div class="tuition-card">
-        <!-- Title -->
-        <h3 class="title">Tutor Needed For {{ post.subject }} ({{ post.student_class }})</h3>
-
-        <!-- Tags -->
-        <div class="tags">
-          <span class="tag home">Home Tutoring</span>
-          <span class="tag time">Posted just now</span>
-        </div>
-
-        <!-- 3 Columns -->
-        <div class="tuition-card-body">
-          <div class="column">
-            <p><strong>Medium:</strong> {{ post.medium }}</p>
-            <p><strong>Tutoring Days:</strong> {{ post.tutoring_days }} days/week</p>
-            <p><strong>District:</strong> {{ post.district }}</p>
-            <p><strong>Location:</strong> {{ post.location }}</p>
+            </div>
+            <div class="card-actions">
+              <a href="{% url 'update' post.id %}" class="btn update glow-on-hover">Update</a>
+              <a href="{% url 'delete' post.id %}" class="btn glow-on-hover" style="background-color: #dc3545; color: white; padding: 6px 14px; border-radius: 5px; text-decoration: none;">Delete</a>
+       </div>
           </div>
-
-          <div class="column">
-            <p><strong>Class:</strong> {{ post.student_class }}</p>
-            <p><strong>Subject:</strong> {{ post.subject }}</p>
-            <p><strong>Contact:</strong> {{ post.contact_number }}</p>
-          </div>
-
-          <div class="column">
-            <p><strong>Preferred Tutor:</strong> {{ post.preferred_tutor }}</p>
-            <p><strong>Salary:</strong> <span class="salary">৳{{ post.salary }}</span> / Month</p>
-          </div>
-        </div>
-
-        <!-- Action buttons -->
-        <div class="card-actions">
-          <a href="{% url 'update' post.id %}" class="btn update">Update</a>
-          <a href="{% url 'delete' post.id %}" class="btn delete">Delete</a>
-        </div>
-      </div>
-    {% endfor %}
-  {% else %}
-    <p class="text-gray-600">No tuition requests found.</p>
-  {% endif %}
+        {% endfor %}
+      {% else %}
+        <p class="text-gray-600">No tuition requests found.</p>
+      {% endif %}
+    </div>
+  </div>
 </div>
 
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    let currentPostId = null;
+
+    // Make these functions accessible from inline HTML onclick
+    window.confirmDelete = function(postId) {
+      currentPostId = postId;
+      const modal = document.getElementById('deleteModal');
+      if (modal) modal.style.display = 'flex';
+      const wrapper = document.querySelector('.card-grid-wrapper');
+      if (wrapper) wrapper.classList.add('blurred');
+    }
+
+    window.closeModal = function() {
+      const modal = document.getElementById('deleteModal');
+      if (modal) modal.style.display = 'none';
+      const wrapper = document.querySelector('.card-grid-wrapper');
+      if (wrapper) wrapper.classList.remove('blurred');
+    }
+
+    const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+    if (confirmDeleteBtn) {
+      confirmDeleteBtn.addEventListener('click', function() {
+        const url = '{% url "delete" 0 %}'.replace('0', currentPostId);
+        window.location.href = url;
+      });
+    }
+  });
+</script>
 {% endblock %}

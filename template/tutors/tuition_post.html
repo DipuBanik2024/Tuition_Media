@@ -6,7 +6,7 @@
 <style>
   .form-container {
     max-width: 800px;
-    margin: auto;
+    margin: 80px auto; /* Top and bottom spacing added */
     background: #fff;
     padding: 30px;
     border-radius: 12px;
@@ -31,7 +31,7 @@
     margin-bottom: 6px;
   }
 
-  input, select {
+  input, select, textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -58,14 +58,17 @@
 </style>
 
 <div class="form-container">
-  <h2>Tutor Request</h2>
+  <h2>Tuition Post</h2>
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
     <div class="form-row">
+      <div class="form-group">
         {{ form.profile_picture.label_tag }}
         {{ form.profile_picture }}
+      </div>
     </div>
+
     <div class="form-row">
       <div class="form-group">
         {{ form.name.label_tag }}
@@ -104,7 +107,6 @@
         {{ form.tuition_fee.label_tag }}
         {{ form.tuition_fee }}
       </div>
-
       <div class="form-group">
         {{ form.location.label_tag }}
         {{ form.location }}
@@ -121,7 +123,6 @@
         {{ form.subjects }}
       </div>
     </div>
-
 
     <div class="checkbox-group">
       <label>
